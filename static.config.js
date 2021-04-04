@@ -1,5 +1,8 @@
 import path from 'path'
 
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+
 // Typescript support in static.config.js is not yet supported, but is coming in a future update!
 
 export default {
@@ -18,6 +21,10 @@ export default {
       "react-static-plugin-mdx",
       {
         parseFrontMatter: true,
+        mdxOptions: {
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex]
+        },
       },
     ],
     'react-static-sass',
