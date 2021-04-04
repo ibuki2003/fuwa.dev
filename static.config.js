@@ -20,5 +20,6 @@ export default {
         parseFrontMatter: true,
       },
     ],
+    'react-static-sass',
   ],
 }
