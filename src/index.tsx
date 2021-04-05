@@ -8,15 +8,15 @@ import App from "./App";
 // Export your top level component as JSX (for static rendering)
 export default App;
 
-const target = document?.getElementById("root");
+const target =
+  typeof window !== "undefined" && document?.getElementById("root");
 // Render your app
 if (target) {
-
   const renderMethod = target.hasChildNodes()
     ? ReactDOM.hydrate
     : ReactDOM.render;
 
-    const render = (Comp: React.FC) => {
+  const render = (Comp: React.FC) => {
     renderMethod(
       <AppContainer>
         <Comp />

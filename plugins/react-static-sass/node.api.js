@@ -1,9 +1,12 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 export default () => ({
   webpack: config => {
+    config.plugins.push(new MiniCssExtractPlugin());
     config.module.rules[0].oneOf.unshift({
       test: /\.s[ac]ss$/,
       use: [
-        'style-loader',
+        MiniCssExtractPlugin.loader,
         'css-loader',
         // 'postcss-loader',
         {
