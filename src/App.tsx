@@ -1,6 +1,8 @@
 import React from "react";
 import { Root, Routes } from "react-static";
 import { Router } from "@reach/router";
+import { MDXProvider } from "@mdx-js/react";
+import Title, { TitleH1 } from "components/title";
 
 import "./app.scss";
 
@@ -33,37 +35,41 @@ const footer_links: FooterLink[] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Root>
-    <header>
-      <a href="/" className="navbar-brand">
-        ふわわあのへや
-      </a>
-      <small>競プロとか、好きなこと、いろいろ。</small>
-    </header>
-    <main id="md">
-      <article>
-        <React.Suspense fallback={<em>Loading...</em>}>
-          <Router>
-            <Routes path="*" />
-          </Router>
-        </React.Suspense>
-      </article>
-    </main>
-
-    <footer>
-      <small>ibuki2003</small>
-      <ul>
-        {footer_links.map((item) => (
-          <li key={item.name}>
-            <a href={item.url} aria-label={item.name}>
-              <img src={item.image} />
-            </a>
-          </li>
-        ))}
-      </ul>
-    </footer>
-  </Root>
-);
+const App: React.FC = () => {
+  return (
+    <Root>
+      <React.Suspense fallback={<em>Loading...</em>}>
+        <Title>{""}</Title> {/* fallback */}
+        <header>
+          <a href="/" className="navbar-brand">
+            ふわわあのへや
+          </a>
+          <small>競プロとか、好きなこと、いろいろ。</small>
+        </header>
+        <main id="md">
+          <article>
+            <MDXProvider components={{ h1: TitleH1 }}>
+              <Router>
+                <Routes path="*" />
+              </Router>
+            </MDXProvider>
+          </article>
+        </main>
+        <footer>
+          <small>ibuki2003</small>
+          <ul>
+            {footer_links.map((item) => (
+              <li key={item.name}>
+                <a href={item.url} aria-label={item.name}>
+                  <img src={item.image} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </footer>
+      </React.Suspense>
+    </Root>
+  );
+};
 
 export default App;
