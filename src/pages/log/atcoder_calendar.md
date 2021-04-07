@@ -1,0 +1,22 @@
+# AtCoderのコンテストカレンダー
+
+## きっかけ
+
+AtCoderのコンテストカレンダーは公式にも存在するのですが,
+更新が最近されない(かった)ので,自動で追加してくれるやつをつくりました.
+
+## 使った技術
+
+Pythonでスクレイピングを行い,GoogleAPIを使ってカレンダーに登録しています.
+これを毎時cronジョブで走らせています.
+
+## カレンダー
+
+下のカレンダーを自分のカレンダーに追加するなどご自由にどうぞ.
+
+<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23FFFFFF&src=mo9vp0r52aj22fs996le9894s0%40group.calendar.google.com&color=%235229A3&ctz=Asia%2FTokyo" style={{"border-width":0}} width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+## AtCoderさん,chokudaiさんへ
+
+サイトをスクレイピングして情報を使わせて頂いています.ありがとうございます.
+もし問題があるようであればお教えください.公開を停止します.
