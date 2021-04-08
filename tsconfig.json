@@ -17,6 +17,7 @@
     "noEmit": true,
     "baseUrl": ".",
     "strict": true,
+    "strictNullChecks": true,
     "paths": {
       "components/*": ["src/components/*"],
       "containers/*": ["src/containers/*"],
