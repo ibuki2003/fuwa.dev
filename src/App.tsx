@@ -4,6 +4,7 @@ import { Router } from "@reach/router";
 import { MDXProvider } from "@mdx-js/react";
 import Title, { TitleH1 } from "components/title";
 import RawParagraph from "components/RawParagraph";
+import HLCode from "components/HLCode";
 
 import "./app.scss";
 
@@ -49,7 +50,13 @@ const App: React.FC = () => {
         </header>
         <main id="md">
           <article>
-            <MDXProvider components={{ h1: TitleH1, p: RawParagraph }}>
+            <MDXProvider
+              components={{
+                h1: TitleH1,
+                p: RawParagraph,
+                code: HLCode,
+              }}
+            >
               <Router>
                 <Routes path="*" />
               </Router>
