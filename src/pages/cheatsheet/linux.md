@@ -2,12 +2,12 @@
 
 ## ワンライナー鯖
 
-```shell=Python
+```bash
 $ python3 -m SimpleHTTPServer 3000
 $ python3 -m http.server 8000
 ```
 
-```shell=PHP
+```bash
 $ php -S localhost:8000
 $ php -S 0.0.0.0:8000
 ```
