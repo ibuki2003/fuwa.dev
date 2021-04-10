@@ -5,6 +5,7 @@ import { MDXProvider } from "@mdx-js/react";
 import Title, { TitleH1 } from "components/title";
 import RawParagraph from "components/RawParagraph";
 import HLCode from "components/HLCode";
+import Gtag from "components/Gtag";
 
 import "./app.scss";
 
@@ -41,6 +42,7 @@ const App: React.FC = () => {
   return (
     <Root>
       <React.Suspense fallback={<em>Loading...</em>}>
+        <Gtag />
         <Title>{""}</Title> {/* fallback */}
         <header>
           <a href="/" className="navbar-brand">
