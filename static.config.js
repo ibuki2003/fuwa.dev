@@ -28,5 +28,6 @@ export default {
       },
     ],
     'react-static-sass',
+    'prevent-inline',
   ],
 }
