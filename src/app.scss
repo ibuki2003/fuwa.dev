@@ -2,6 +2,10 @@
 @import "~katex/dist/katex.css";
 @import "./markdown.scss";
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
