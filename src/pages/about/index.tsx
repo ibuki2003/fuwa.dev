@@ -48,7 +48,7 @@ const AboutPage: React.FC = () => (
             <tr>
               <th>GPG Key</th>
               <td>
-                <a href="https://fuwa.dev/fuawa.gpg">
+                <a href="https://fuwa.dev/fuwa.gpg">
                   <code>B9C6 B4B0 956F BAE9 456E 2B38 615E 83E8 4465 1088</code>
                 </a>
               </td>
