@@ -186,7 +186,14 @@ const AboutPage: React.FC = () => (
     <section>
       <h2>Works</h2>
       <div className="works-card-container">
-        <Card icon={Afes73Icon} title="麻布学園 第73回文化祭公式ウェブサイト">
+        <Card
+          icon={Afes73Icon}
+          title={
+            <a href="https://73.afes.info">
+              麻布学園 第73回文化祭公式ウェブサイト
+            </a>
+          }
+        >
           <ul>
             <li>2019/12〜2020/11</li>
             <li>
