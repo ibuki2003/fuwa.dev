@@ -26,7 +26,7 @@ const AboutPage: React.FC = () => (
     <section id="personal_info">
       <img className="profile-pic" src="https://fuwa.dev/favicon.png" />
       <div>
-        <h2>にこなのにふわわあ</h2>
+        <h2>杉山 衣吹 (にこなのにふわわあ)</h2>
         <p>Ibuki Sugiyama</p>
 
         <table id="profile_table">
