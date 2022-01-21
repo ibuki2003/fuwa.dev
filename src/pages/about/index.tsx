@@ -1,8 +1,6 @@
 import React from "react";
 import Title from "components/title";
 
-import Card from "./card";
-
 import "./about.scss";
 
 import LaravelLogo from "./skill-icons/laravel.svg";
@@ -26,7 +24,7 @@ const AboutPage: React.FC = () => (
   <>
     <Title>About</Title>
     <section id="personal_info">
-      <img src="https://fuwa.dev/favicon.png" />
+      <img className="profile-pic" src="https://fuwa.dev/favicon.png" />
       <div>
         <h2>にこなのにふわわあ</h2>
         <p>Ibuki Sugiyama</p>
@@ -46,17 +44,28 @@ const AboutPage: React.FC = () => (
               <td>2003/04/26</td>
             </tr>
             <tr>
-              <th>GPG Key</th>
+              <th>OpenPGP Key</th>
               <td>
-                <a href="https://fuwa.dev/fuwa.gpg">
-                  <code>B9C6 B4B0 956F BAE9 456E 2B38 615E 83E8 4465 1088</code>
+                <a href="https://fuwa.dev/fuwa.asc">
+                  <code className="pgp-key">
+                    <span>B9C6</span>
+                    <span>B4B0</span>
+                    <span>956F</span>
+                    <span>BAE9</span>
+                    <span>456E</span>
+                    <span>2B38</span>
+                    <span>615E</span>
+                    <span>83E8</span>
+                    <span>4465</span>
+                    <span>1088</span>
+                  </code>
                 </a>
               </td>
             </tr>
           </tbody>
         </table>
 
-        <h3>Accounts</h3>
+        <h3>Contacts/Links</h3>
 
         <table>
           <tbody>
@@ -93,6 +102,12 @@ const AboutPage: React.FC = () => (
                 >
                   ibuki2003
                 </a>
+              </td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>
+                <a href="mailto:contact@fuwa.dev">contact@fuwa.dev</a>
               </td>
             </tr>
           </tbody>
@@ -291,6 +306,21 @@ const AboutPage: React.FC = () => (
       </ul>
     </section>
   </>
+);
+
+interface CardProps {
+  icon?: string;
+  title: React.ReactNode;
+}
+
+const Card: React.FC<CardProps> = (props) => (
+  <div className="card skillcard">
+    <h3>
+      {props.icon && <img src={props.icon} className="header-icon" />}
+      {props.title}
+    </h3>
+    {props.children}
+  </div>
 );
 
 export default AboutPage;

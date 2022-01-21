@@ -10,24 +10,35 @@ section#personal_info {
   display: flex;
   place-content: center;
 
-  img {
+  img.profile-pic {
     height: 15rem;
     width: 15rem;
     border: 1px solid rgba(50, 50, 50, 0.3);
     margin-right: 2rem;
   }
 
-  table tr {
-    background: transparent !important;
-    border: none;
+  table {
+    width: 100%;
+    margin-top: 1rem;
 
-    th {
-      border-right: 1px solid rgba(50, 50, 50, 0.1);
-      text-align: right;
+    tr {
+      background: transparent !important;
+      border: none;
+
+      th {
+        border-right: 1px solid rgba(50, 50, 50, 0.1);
+        text-align: right;
+        width: 40%;
+      }
+    }
+
+    &#profile_table tr {
+      height: 2.5em;
     }
   }
-  table#profile_table tr {
-    height: 2.5em;
+
+  .pgp-key span:not(:last-child):after {
+    content: " ";
   }
 }
 
