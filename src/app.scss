@@ -2,7 +2,9 @@
 @import "~katex/dist/katex.css";
 @import "./markdown.scss";
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
