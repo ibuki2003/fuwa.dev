@@ -5,7 +5,6 @@ import "./about.scss";
 
 import LaravelLogo from "./skill-icons/laravel.svg";
 import PhpLogo from "./skill-icons/php.svg";
-import AtCoderLogo from "./skill-icons/atcoder.png";
 import DockerLogo from "./skill-icons/docker.svg";
 import ArchLinuxLogo from "./skill-icons/archlinux.svg";
 import VueLogo from "./skill-icons/vue.svg";
@@ -16,6 +15,7 @@ import ReactIcon from "./skill-icons/react.svg";
 import TSIcon from "./skill-icons/ts.png";
 import PythonLogo from "./skill-icons/python.svg";
 import JavaLogo from "./skill-icons/java.svg";
+import SqlLogo from "./skill-icons/mysql.svg";
 
 import JOILogo from "./joi.png";
 import Afes73Icon from "./afes73.png";
@@ -116,49 +116,28 @@ const AboutPage: React.FC = () => (
     </section>
     <section>
       <h2>Skills</h2>
-      <div className="skill-card-container">
-        <Card icon={CppIcon} title="C/C++">
-          since 2013(C), 2017(C++)
-        </Card>
-        <Card icon={GitIcon} title="Git">
-          since 2018
-        </Card>
-        <Card icon={PhpLogo} title="PHP">
-          since 2016
-        </Card>
-        <Card icon={Html5Logo} title="HTML/JS/CSS">
-          since 2012
-        </Card>
-        <Card icon={TSIcon} title="TypeScript">
-          since 2020
-        </Card>
-        <Card icon={VueLogo} title="Vue.js">
-          since 2018
-        </Card>
-        <Card icon={ReactIcon} title="React.js">
-          since 2020
-        </Card>
-        <Card icon={DockerLogo} title="Docker">
-          since 2020
-        </Card>
-        <Card icon={LaravelLogo} title="Laravel/Lumen">
-          since 2018
-        </Card>
-        <Card icon={AtCoderLogo} title="Competitive Programming">
-          since 2017
-        </Card>
-        <Card icon={ArchLinuxLogo} title="Linux">
-          since 2017
-        </Card>
-        <Card title="SQL">since 2016</Card>
-        <Card icon={PythonLogo} title="Python3">
-          since 2017
-        </Card>
-        <Card icon={JavaLogo} title="Java">
-          since 2014
-        </Card>
-        <Card title="MS Excel">since 2009</Card>
-      </div>
+      <ul className="skills">
+        {[
+          ["C/C++", CppIcon],
+          ["Git", GitIcon],
+          ["PHP", PhpLogo],
+          ["HTML/JS/CSS", Html5Logo],
+          ["TypeScript", TSIcon],
+          ["Vue.js", VueLogo],
+          ["React.js", ReactIcon],
+          ["Docker", DockerLogo],
+          ["Laravel/Lumen", LaravelLogo],
+          ["Linux", ArchLinuxLogo],
+          ["Python3", PythonLogo],
+          ["Java", JavaLogo],
+          ["SQL", SqlLogo],
+        ].map(([name, logo]) => (
+          <li key={name}>
+            <img src={logo} alt={name} />
+            <div>{name}</div>
+          </li>
+        ))}
+      </ul>
     </section>
     <section>
       <h2>History</h2>
