@@ -3,21 +3,21 @@ import Title from "components/title";
 
 import "./about.scss";
 
-import AspidaIcon from "./skill-icons/aspida.svg";
-import LaravelLogo from "./skill-icons/laravel.svg";
-import PhpLogo from "./skill-icons/php.svg";
-import DockerLogo from "./skill-icons/docker.svg";
-import ArchLinuxLogo from "./skill-icons/archlinux.svg";
-import VueLogo from "./skill-icons/vue.svg";
-import Html5Logo from "./skill-icons/html5.svg";
-import CppIcon from "./skill-icons/cpp.svg";
-import GitIcon from "./skill-icons/git.svg";
-import GitHubIcon from "./skill-icons/github.svg";
-import ReactIcon from "./skill-icons/react.svg";
-import TSIcon from "./skill-icons/ts.png";
-import PythonLogo from "./skill-icons/python.svg";
-import JavaLogo from "./skill-icons/java.svg";
-import SqlLogo from "./skill-icons/mysql.svg";
+import AspidaIcon from "assets/icons/aspida.svg";
+import LaravelLogo from "assets/icons/laravel.svg";
+import PhpLogo from "assets/icons/php.svg";
+import DockerLogo from "assets/icons/docker.svg";
+import ArchLinuxLogo from "assets/icons/archlinux.svg";
+import VueLogo from "assets/icons/vue.svg";
+import Html5Logo from "assets/icons/html5.svg";
+import CppIcon from "assets/icons/cpp.svg";
+import GitIcon from "assets/icons/git.svg";
+import GitHubIcon from "assets/icons/github.svg";
+import ReactIcon from "assets/icons/react.svg";
+import TSIcon from "assets/icons/ts.png";
+import PythonLogo from "assets/icons/python.svg";
+import JavaLogo from "assets/icons/java.svg";
+import SqlLogo from "assets/icons/mysql.svg";
 
 import JOILogo from "./joi.png";
 import Afes73Icon from "./afes73.png";
