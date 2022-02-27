@@ -162,41 +162,36 @@ const AboutPage: React.FC = () => (
     </section>
     <section>
       <h2>History</h2>
-      <div className="history-card-container">
-        <Card title="プログラミング入門">2016/04</Card>
-        <Card title="麻布中学校入学">2016/04</Card>
-        <Card title="競技プログラミング開始">2017/05</Card>
-        <Card icon={JOILogo} title="JOI2018本選">
-          <div>
-            2019/02
-            <br />
-            <a href="/log/competitive/joi2019ho">参加記</a>
-          </div>
-        </Card>
-        <Card icon={JOILogo} title="JOI夏季セミナー2019">
-          <div>
-            2019/02
-            <br />
-            <a href="/log/competitive/joiss2019">参加記</a>
-          </div>
-        </Card>
-        <Card icon={JOILogo} title="JOI2019本選">
-          <div>
-            2020/02
-            <br />
-            <a href="/log/competitive/joi2020ho">参加記</a>
-          </div>
-        </Card>
-        <Card title="パソコン甲子園2020 グランプリ">2020/11</Card>
-        <Card title="APCC引退">2020/11</Card>
-        <Card icon={JOILogo} title="JOI2020本選">
-          <div>
-            2021/02
-            <br />
-            <a href="/log/competitive/joi2021ho">参加記</a>
-          </div>
-        </Card>
-      </div>
+      <ul className="timeline">
+        <li aria-hidden="true"></li>
+        <TimelineEntry date="2016/04">APCC入部</TimelineEntry>
+        <TimelineEntry date="2017/05">競技プログラミング開始</TimelineEntry>
+
+        <TimelineEntry date="2019/02" icon={JOILogo}>
+          JOI2018本選
+          <br />
+          <a href="/log/competitive/joi2019ho">参加記</a>
+        </TimelineEntry>
+        <TimelineEntry date="2019/08" icon={JOILogo}>
+          JOI夏季セミナー2019参加
+          <br />
+          <a href="/log/competitive/joiss2019">参加記</a>
+        </TimelineEntry>
+        <TimelineEntry date="2020/02" icon={JOILogo}>
+          JOI2019本選
+          <br />
+          <a href="/log/competitive/joi2020ho">参加記</a>
+        </TimelineEntry>
+        <TimelineEntry date="2020/11">
+          パソコン甲子園2020 グランプリ
+        </TimelineEntry>
+        <TimelineEntry date="2020/11">APCC引退</TimelineEntry>
+        <TimelineEntry date="2021/02" icon={JOILogo}>
+          JOI2020本選
+          <br />
+          <a href="/log/competitive/joi2021ho">参加記</a>
+        </TimelineEntry>
+      </ul>
     </section>
     <section>
       <h2>Works</h2>
@@ -321,6 +316,18 @@ const Card: React.FC<CardProps> = (props) => (
     </h3>
     {props.children}
   </div>
+);
+
+const TimelineEntry: React.FC<{
+  date: string;
+  icon?: string;
+  children: React.ReactNode;
+}> = (props) => (
+  <li className="timeline-entry">
+    {props.icon && <img src={props.icon} className="icon" />}
+    <span className="date">{props.date}</span>
+    <span className="detail">{props.children}</span>
+  </li>
 );
 
 export default AboutPage;
