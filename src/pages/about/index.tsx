@@ -3,6 +3,7 @@ import Title from "components/title";
 
 import "./about.scss";
 
+import AspidaIcon from "./skill-icons/aspida.svg";
 import LaravelLogo from "./skill-icons/laravel.svg";
 import PhpLogo from "./skill-icons/php.svg";
 import DockerLogo from "./skill-icons/docker.svg";
@@ -11,6 +12,7 @@ import VueLogo from "./skill-icons/vue.svg";
 import Html5Logo from "./skill-icons/html5.svg";
 import CppIcon from "./skill-icons/cpp.svg";
 import GitIcon from "./skill-icons/git.svg";
+import GitHubIcon from "./skill-icons/github.svg";
 import ReactIcon from "./skill-icons/react.svg";
 import TSIcon from "./skill-icons/ts.png";
 import PythonLogo from "./skill-icons/python.svg";
@@ -174,69 +176,102 @@ const AboutPage: React.FC = () => (
     </section>
     <section>
       <h2>Works</h2>
-      <div className="works-card-container">
-        <Card
+      <div className="works">
+        <WorksCard
           icon={Afes73Icon}
           title={
             <a href="https://73.afes.info">
               麻布学園 第73回文化祭公式ウェブサイト
             </a>
           }
+          tags={[
+            { name: "Vue.js", image: VueLogo },
+            { name: "Lumen", image: LaravelLogo },
+            { name: "MySQL", image: SqlLogo },
+            {
+              name: "GitHub",
+              image: GitHubIcon,
+              href: "https://github.com/afes-website",
+            },
+          ]}
         >
           <ul>
             <li>2019/12〜2020/11</li>
-            <li>
-              <a href="https://github.com/afes-website">GitHub</a>
-            </li>
-            <li>Vue.js</li>
-            <li>TypeScript</li>
-            <li>Lumen</li>
             <li>初チーム開発</li>
             <li>たくさんの来場/閲覧 ありがとうございました!</li>
           </ul>
-        </Card>
-        <Card
+        </WorksCard>
+        <WorksCard
+          icon={Afes73Icon}
+          title="文化祭管理システムCAPPUCCINO"
+          tags={[
+            { name: "React.js", image: ReactIcon },
+            { name: "Lumen", image: LaravelLogo },
+            { name: "MySQL", image: SqlLogo },
+            {
+              name: "GitHub",
+              image: GitHubIcon,
+              href: "https://github.com/afes-website",
+            },
+          ]}
+        >
+          <ul>
+            <li>2020/12〜2021/11</li>
+            <li>
+              <a href="https://zenn.dev/su8ru/articles/cappuccino-system">
+                開発・運用記
+              </a>
+            </li>
+            <li>たくさんの来場ありがとうございました!</li>
+          </ul>
+        </WorksCard>
+        <WorksCard
           title={<a href="https://onlinemathcontest.com">OnlineMathContest</a>}
+          tags={[
+            { name: "React.js", image: ReactIcon },
+            { name: "Laravel", image: LaravelLogo },
+          ]}
         >
           <ul>
             <li>2020/09〜</li>
-            <li>Laravel</li>
-            <li>Typescript</li>
-            <li>React</li>
             <li>
               <a href="https://twitter.com/OMathC_official">
                 Twitter@OmathC_official
               </a>
             </li>
           </ul>
-        </Card>
-        <Card title={<a href="https://oj.fuwa.dev/">Fuwa Online Judge</a>}>
+        </WorksCard>
+        <WorksCard
+          title={<a href="https://oj.fuwa.dev/">Fuwa Online Judge</a>}
+          tags={[
+            { name: "Laravel", image: LaravelLogo },
+            { name: "Python", image: PythonLogo },
+            {
+              name: "GitHub",
+              image: GitHubIcon,
+              href: "https://github.com/ibuki2003/onlinejudge",
+            },
+          ]}
+        >
           <ul>
             <li>2018/11〜 (1世代目:2017/10〜2018/10)</li>
-            <li>
-              <a href="https://github.com/ibuki2003/onlinejudge">repo</a>
-            </li>
             <li>Laravel</li>
             <li>BootStrap</li>
           </ul>
-        </Card>
-        <Card title={<a href="https://oj.fuwa.dev/">Fuwa Online Judge</a>}>
-          <ul>
-            <li>2019/10〜</li>
-            <li>CHUNITHMのプレイ記録ツール</li>
-            <li>
-              <a href="https://github.com/ibuki2003/chunilog">repo</a>
-            </li>
-            <li>Laravel</li>
-            <li>BootStrap</li>
-          </ul>
-        </Card>
-        <Card
+        </WorksCard>
+        <WorksCard
           title={
             <a href="https://github.com/aspida/eslint-plugin-aspida/">
               eslint-plugin-aspida
             </a>
           }
+          tags={[
+            {
+              name: "Aspida",
+              image: AspidaIcon,
+              href: "https://github.com/aspida/aspida/",
+            },
+          ]}
         >
           <ul>
             <li>2020/07〜</li>
@@ -245,55 +280,41 @@ const AboutPage: React.FC = () => (
               の型定義支援用eslintプラグイン
             </li>
           </ul>
-        </Card>
+        </WorksCard>
       </div>
-    </section>
-    <section>
-      <h2>System Info.</h2>
-      <h3>Laptop</h3>
-      <ul>
-        <li>ThinkPad X1 Carbon 4th Gen.</li>
-        <li>Arch Linux</li>
-        <li>Vivaldi</li>
-        <li>NeoVim(, VSCode, Atom)</li>
-        <li>i3wm</li>
-        <li>zsh</li>
-        <li>P2418D (as an external display)</li>
-      </ul>
-      <h3>Gadgets</h3>
-      <ul>
-        <li>Google Pixel 4</li>
-        <li>iPad Air Gen3</li>
-        <li>Happy Hacking KeyBoard Professional Hybrid Type-S</li>
-        <li>Google Home Mini (Chalk)</li>
-        <li>Nature Remo Mini</li>
-        <li>ChromeCast Ultra</li>
-        <li>ScanSnap iX1500</li>
-      </ul>
-      <h3>Server</h3>
-      <ul>
-        <li>Sakura VPS</li>
-        <li>Ubuntu 20.04</li>
-        <li>RAM 2GB</li>
-        <li>SSD 200GB</li>
-        <li>nginx, php7</li>
-      </ul>
     </section>
   </>
 );
 
-interface CardProps {
+const WorksCard: React.FC<{
   icon?: string;
   title: React.ReactNode;
-}
-
-const Card: React.FC<CardProps> = (props) => (
-  <div className="card skillcard">
-    <h3>
-      {props.icon && <img src={props.icon} className="header-icon" />}
-      {props.title}
-    </h3>
-    {props.children}
+  tags?: { name: string; image: string; href?: string }[];
+}> = (props) => (
+  <div className="entry-card">
+    <div className="card-header">
+      <h3 className="card-title">
+        {props.icon && <img className="card-icon" src={props.icon} />}
+        {props.title}
+      </h3>
+      <ul className="card-tags">
+        {props.tags &&
+          props.tags.map(({ name, image, href }) => (
+            <li key={name}>
+              {href ? (
+                <a href={href}>
+                  <img src={image} alt={name} />
+                </a>
+              ) : (
+                <>
+                  <img src={image} alt={name} />
+                </>
+              )}
+            </li>
+          ))}
+      </ul>
+    </div>
+    <div className="entry-description">{props.children}</div>
   </div>
 );
 
