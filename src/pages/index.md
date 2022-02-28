@@ -7,7 +7,6 @@
 - [チートシート](/cheatsheet)
 - [記事…?](/article)
 - [配布物とか](/distributes)
-- [月記](/diary)
 - [OnlineJudgeのヘルプ](/oj_help)
 
 [![ibuki2003](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fibuki2003)](https://atcoder.jp/users/ibuki2003)
