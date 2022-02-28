@@ -283,6 +283,12 @@ const AboutPage: React.FC = () => (
         </WorksCard>
       </div>
     </section>
+    <section>
+      <h2>More information</h2>
+      <ul>
+        <li><a href="/about/deps">Dependencies</a></li>
+      </ul>
+    </section>
   </>
 );
 
