@@ -18,6 +18,8 @@ import TSIcon from "assets/icons/ts.png";
 import PythonLogo from "assets/icons/python.svg";
 import JavaLogo from "assets/icons/java.svg";
 import SqlLogo from "assets/icons/mysql.svg";
+import AzbLogo from "assets/icons/azb.svg";
+import UTLogo from "assets/icons/ut.svg";
 
 import JOILogo from "./joi.png";
 import Afes73Icon from "./afes73.png";
@@ -36,9 +38,9 @@ const AboutPage: React.FC = () => (
             <tr>
               <th>Affiliation</th>
               <td>
-                麻布高等学校
+                東京大学 (教養学部: 前期課程)
                 <br />
-                (2022/03 卒業予定)
+                (2026/03 卒業予定)
               </td>
             </tr>
             <tr>
@@ -171,6 +173,12 @@ const AboutPage: React.FC = () => (
           JOI2020本選
           <br />
           <a href="/log/competitive/joi2021ho">参加記</a>
+        </TimelineEntry>
+        <TimelineEntry date="2022/03" icon={AzbLogo}>
+          麻布高等学校 卒業
+        </TimelineEntry>
+        <TimelineEntry date="2022/04" icon={UTLogo}>
+          東京大学 入学
         </TimelineEntry>
       </ul>
     </section>
