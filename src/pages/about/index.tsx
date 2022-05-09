@@ -108,12 +108,6 @@ const AboutPage: React.FC = () => (
                 </a>
               </td>
             </tr>
-            <tr>
-              <th>Email</th>
-              <td>
-                <a href="mailto:contact@fuwa.dev">contact@fuwa.dev</a>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
