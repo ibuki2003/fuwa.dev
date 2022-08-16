@@ -1,5 +1,5 @@
 import React from "react";
-import { Head } from "react-static";
+import Head from "next/head";
 
 const siteTitle = "ふわわあのへや";
 
@@ -12,13 +12,3 @@ const Title: React.FC<{ children: string }> = ({ children }) => {
   );
 };
 export default Title;
-
-export const TitleH1: React.FC<{ children: string; title?: string | null }> = ({
-  children,
-  title,
-}) => (
-  <>
-    {title !== null && <Title>{title || children}</Title>}
-    <h1>{children}</h1>
-  </>
-);
