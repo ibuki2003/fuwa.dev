@@ -3,32 +3,11 @@ import Title from "components/title";
 
 import styles from "./about.module.scss";
 
-import AspidaIcon from "assets/icons/aspida.svg";
-import LaravelLogo from "assets/icons/laravel.svg";
-import PhpLogo from "assets/icons/php.svg";
-import DockerLogo from "assets/icons/docker.svg";
-import ArchLinuxLogo from "assets/icons/archlinux.svg";
-import VueLogo from "assets/icons/vue.svg";
-import Html5Logo from "assets/icons/html5.svg";
-import CppIcon from "assets/icons/cpp.svg";
-import GitIcon from "assets/icons/git.svg";
-import GitHubIcon from "assets/icons/github.svg";
-import ReactIcon from "assets/icons/react.svg";
-import TSIcon from "assets/icons/ts.png";
-import PythonLogo from "assets/icons/python.svg";
-import JavaLogo from "assets/icons/java.svg";
-import SqlLogo from "assets/icons/mysql.svg";
-import AzbLogo from "assets/icons/azb.svg";
-import UTLogo from "assets/icons/ut.svg";
-
-import JOILogo from "./joi.png";
-import Afes73Icon from "./afes73.png";
-
 const AboutPage: React.FC = () => (
   <article className={styles.main}>
     <Title>About</Title>
     <section id={styles.personal_info}>
-      <img className={styles.profilePic} src="https://fuwa.dev/favicon.png" />
+      <img className={styles.profilePic} src="/assets/fuwa.svg" />
       <div>
         <h2>杉山 衣吹 (にこなのにふわわあ)</h2>
         <p>Ibuki Sugiyama</p>
@@ -68,47 +47,48 @@ const AboutPage: React.FC = () => (
           </tbody>
         </table>
 
-        <h3>Contacts/Links</h3>
-
-        <table>
-          <tbody>
-            <tr>
-              <th>GitHub</th>
-              <td>
-                <a href="https://github.com/ibuki2003">@ibuki2003</a>
-              </td>
-            </tr>
-            <tr>
-              <th>Qiita</th>
-              <td>
-                <a href="https://qiita.com/ibuki2003">@ibuki2003</a>
-              </td>
-            </tr>
-            <tr>
-              <th>Twitter</th>
-              <td>
-                <a href="https://twitter.com/ibuki2003">@ibuki2003</a>
-              </td>
-            </tr>
-            <tr>
-              <th>Zenn</th>
-              <td>
-                <a href="https://zenn.dev/fuwa2003">@fuwa2003</a>
-              </td>
-            </tr>
-            <tr>
-              <th>AtCoder</th>
-              <td>
-                <a
-                  href="https://atcoder.jp/users/ibuki2003"
-                  style={{ color: "#0000ff" }}
-                >
-                  ibuki2003
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <ul className={styles.linkIcons}>
+          {(
+            [
+              [
+                "/assets/icons/github.svg",
+                "GitHub@ibuki2003",
+                "https://github.com/ibuki2003",
+              ],
+              [
+                "/assets/icons/qiita.svg",
+                "Qiita@ibuki2003",
+                "https://qiita.com/ibuki2003",
+              ],
+              [
+                "/assets/icons/zenn.svg",
+                "Zenn@fuwa2003",
+                "https://zenn.dev/fuwa2003",
+              ],
+              [
+                "/assets/icons/twitter.svg",
+                "Twitter@ibuki2003",
+                "https://twitter.com/ibuki2003",
+              ],
+              [
+                "/assets/icons/keybase.png",
+                "keybase@fuwa2003",
+                "https://keybase.io/fuwa2003",
+              ],
+              [
+                "/assets/icons/atcoder.png",
+                "AtCoder@ibuki2003",
+                "https://atcoder.jp/users/ibuki2003",
+              ],
+            ] as const
+          ).map(([icon, alt, href]) => (
+            <li key={alt}>
+              <a href={href}>
+                <img src={icon} alt={alt} title={alt} />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
     <section>
@@ -116,23 +96,23 @@ const AboutPage: React.FC = () => (
       <ul className={styles.skills}>
         {(
           [
-            ["C/C++", CppIcon],
-            ["Git", GitIcon],
-            ["PHP", PhpLogo],
-            ["HTML/JS/CSS", Html5Logo],
-            ["TypeScript", TSIcon],
-            ["Vue.js", VueLogo],
-            ["React.js", ReactIcon],
-            ["Docker", DockerLogo],
-            ["Laravel/Lumen", LaravelLogo],
-            ["Linux", ArchLinuxLogo],
-            ["Python3", PythonLogo],
-            ["Java", JavaLogo],
-            ["SQL", SqlLogo],
+            ["C/C++", "/assets/icons/cpp.svg"],
+            ["Git", "/assets/icons/git.svg"],
+            ["PHP", "/assets/icons/php.svg"],
+            ["HTML/JS/CSS", "/assets/icons/html5.svg"],
+            ["TypeScript", "/assets/icons/typescript.svg"],
+            ["Vue.js", "/assets/icons/vue.svg"],
+            ["React.js", "/assets/icons/react.svg"],
+            ["Docker", "/assets/icons/docker.svg"],
+            ["Laravel/Lumen", "/assets/icons/laravel.svg"],
+            ["Linux", "/assets/icons/archlinux.svg"],
+            ["Python3", "/assets/icons/python.svg"],
+            ["Java", "/assets/icons/java.svg"],
+            ["SQL", "/assets/icons/mysql.svg"],
           ] as const
         ).map(([name, logo]) => (
           <li key={name}>
-            <img src={logo.src} alt={name} />
+            <img src={logo} alt={name} />
             <div>{name}</div>
           </li>
         ))}
@@ -145,17 +125,17 @@ const AboutPage: React.FC = () => (
         <TimelineEntry date="2016/04">APCC入部</TimelineEntry>
         <TimelineEntry date="2017/05">競技プログラミング開始</TimelineEntry>
 
-        <TimelineEntry date="2019/02" icon={JOILogo.src}>
+        <TimelineEntry date="2019/02" icon="/assets/icons/joi.png">
           JOI2018本選
           <br />
           <a href="/log/competitive/joi2019ho">参加記</a>
         </TimelineEntry>
-        <TimelineEntry date="2019/08" icon={JOILogo.src}>
+        <TimelineEntry date="2019/08" icon="/assets/icons/joi.png">
           JOI夏季セミナー2019参加
           <br />
           <a href="/log/competitive/joiss2019">参加記</a>
         </TimelineEntry>
-        <TimelineEntry date="2020/02" icon={JOILogo.src}>
+        <TimelineEntry date="2020/02" icon="/assets/icons/joi.png">
           JOI2019本選
           <br />
           <a href="/log/competitive/joi2020ho">参加記</a>
@@ -164,15 +144,15 @@ const AboutPage: React.FC = () => (
           パソコン甲子園2020 グランプリ
         </TimelineEntry>
         <TimelineEntry date="2020/11">APCC引退</TimelineEntry>
-        <TimelineEntry date="2021/02" icon={JOILogo.src}>
+        <TimelineEntry date="2021/02" icon="/assets/icons/joi.png">
           JOI2020本選
           <br />
           <a href="/log/competitive/joi2021ho">参加記</a>
         </TimelineEntry>
-        <TimelineEntry date="2022/03" icon={AzbLogo.src}>
+        <TimelineEntry date="2022/03" icon="/assets/icons/azb.svg">
           麻布高等学校 卒業
         </TimelineEntry>
-        <TimelineEntry date="2022/04" icon={UTLogo.src}>
+        <TimelineEntry date="2022/04" icon="/assets/icons/ut.svg">
           東京大学 入学
         </TimelineEntry>
       </ul>
@@ -181,19 +161,19 @@ const AboutPage: React.FC = () => (
       <h2>Works</h2>
       <div className={styles.works}>
         <WorksCard
-          icon={Afes73Icon.src}
+          icon={"/assets/icons/afes73.png"}
           title={
             <a href="https://73.afes.info">
               麻布学園 第73回文化祭公式ウェブサイト
             </a>
           }
           tags={[
-            { name: "Vue.js", image: VueLogo.src },
-            { name: "Lumen", image: LaravelLogo.src },
-            { name: "MySQL", image: SqlLogo.src },
+            { name: "Vue.js", image: "/assets/icons/vue.svg" },
+            { name: "Lumen", image: "/assets/icons/laravel.svg" },
+            { name: "MySQL", image: "/assets/icons/mysql.svg" },
             {
               name: "GitHub",
-              image: GitHubIcon.src,
+              image: "/assets/icons/github.svg",
               href: "https://github.com/afes-website",
             },
           ]}
@@ -205,15 +185,15 @@ const AboutPage: React.FC = () => (
           </ul>
         </WorksCard>
         <WorksCard
-          icon={Afes73Icon.src}
+          icon={"/assets/icons/afes73.png"}
           title="文化祭管理システムCAPPUCCINO"
           tags={[
-            { name: "React.js", image: ReactIcon.src },
-            { name: "Lumen", image: LaravelLogo.src },
-            { name: "MySQL", image: SqlLogo.src },
+            { name: "React.js", image: "/assets/icons/react.svg" },
+            { name: "Lumen", image: "/assets/icons/laravel.svg" },
+            { name: "MySQL", image: "/assets/icons/mysql.svg" },
             {
               name: "GitHub",
-              image: GitHubIcon.src,
+              image: "/assets/icons/github.svg",
               href: "https://github.com/afes-website",
             },
           ]}
@@ -231,8 +211,8 @@ const AboutPage: React.FC = () => (
         <WorksCard
           title={<a href="https://onlinemathcontest.com">OnlineMathContest</a>}
           tags={[
-            { name: "React.js", image: ReactIcon.src },
-            { name: "Laravel", image: LaravelLogo.src },
+            { name: "React.js", image: "/assets/icons/react.svg" },
+            { name: "Laravel", image: "/assets/icons/laravel.svg" },
           ]}
         >
           <ul>
@@ -247,11 +227,11 @@ const AboutPage: React.FC = () => (
         <WorksCard
           title={<a href="https://oj.fuwa.dev/">Fuwa Online Judge</a>}
           tags={[
-            { name: "Laravel", image: LaravelLogo.src },
-            { name: "Python", image: PythonLogo.src },
+            { name: "Laravel", image: "/assets/icons/laravel.svg" },
+            { name: "Python", image: "/assets/icons/python.svg" },
             {
               name: "GitHub",
-              image: GitHubIcon.src,
+              image: "/assets/icons/github.svg",
               href: "https://github.com/ibuki2003/onlinejudge",
             },
           ]}
@@ -271,7 +251,7 @@ const AboutPage: React.FC = () => (
           tags={[
             {
               name: "Aspida",
-              image: AspidaIcon.src,
+              image: "/assets/icons/aspida.svg",
               href: "https://github.com/aspida/aspida/",
             },
           ]}
