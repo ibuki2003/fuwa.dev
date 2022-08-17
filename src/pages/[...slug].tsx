@@ -30,8 +30,8 @@ const extensions = ["md", "mdx"];
 const basePath = "./src/pages";
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const slug = context.params?.slug;
-  if (!slug || !Array.isArray(slug)) throw new Error();
+  const slug = context.params?.slug ?? [];
+  if (!Array.isArray(slug)) throw new Error();
   const path = slug.join("/");
   const file = await Promise.any(
     extensions.flatMap((e) =>
@@ -62,7 +62,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
       cwd: basePath,
       onlyFiles: true,
     })
-  ).map((f) => f.replace(/\.\w+$/, "").replace(/\/index$/, ""));
+  )
+    .map((f) => f.replace(/\.\w+$/, "").replace(/\/index$/, ""))
+    .filter((p) => p != "index");
 
   return {
     paths: paths.map((p) => ({ params: { slug: p.split("/") } })),
