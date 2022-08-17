@@ -9,10 +9,11 @@ yarn install
 
 ## development server
 ```sh
-yarn start
+yarn dev
 ```
 
 ## build
 ```sh
 yarn build
+yarn export
 ```
