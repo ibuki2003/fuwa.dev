@@ -6,6 +6,7 @@ import remarkMath from "remark-math";
 import remarkBreaks from "remark-breaks";
 import rehypeKatex from "rehype-katex";
 import rehypeHightlight from "rehype-highlight";
+import "lowlight/lib/all"; // load all languages
 
 async function parseMDX(file: string) {
   const content = await fs.readFile(file, { encoding: "utf-8" });
