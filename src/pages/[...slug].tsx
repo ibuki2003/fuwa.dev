@@ -17,10 +17,10 @@ export const config = {
 
 const MarkdownPage: React.FC<Props> = (props) => {
   return (
-    <>
+    <article>
       <Title>{props.title}</Title>
       <MDXRemote {...props.source} />
-    </>
+    </article>
   );
 };
 

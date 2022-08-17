@@ -1,4 +1,4 @@
-section:not(:last-child) {
+section.main:not(:last-child) {
   margin-bottom: 3rem;
   // border-bottom: 1px solid rgba(50, 50, 50, 0.3);
   // border-radius: 0.3rem;
@@ -10,7 +10,7 @@ section#personal_info {
   display: flex;
   place-content: center;
 
-  img.profile-pic {
+  img.profilePic {
     height: 15rem;
     width: 15rem;
     border: 1px solid rgba(50, 50, 50, 0.3);
@@ -37,7 +37,7 @@ section#personal_info {
     }
   }
 
-  .pgp-key span:not(:last-child):after {
+  .pgpKey span:not(:last-child):after {
     content: " ";
   }
 }
@@ -101,7 +101,7 @@ ul.timeline {
       z-index: 5;
     }
 
-    &.timeline-entry {
+    &.timelineEntry {
       &:before {
         content: "";
         width: 1.2em;
@@ -136,7 +136,7 @@ ul.timeline {
 }
 
 .works {
-  .entry-card {
+  .entryCard {
     margin: 0.5rem;
     border-radius: 0.3rem;
     box-shadow: 2px 2px 5px 2px rgba(15, 10, 5, 0.1);
@@ -145,23 +145,23 @@ ul.timeline {
       font-size: 1.3em;
     }
 
-    .card-header {
+    .cardHeader {
       display: flex;
       align-items: center;
       margin-bottom: 0.5em;
 
-      .card-title {
+      .cardTitle {
         font-size: 1.2em;
         margin-right: 0.5em;
         flex-grow: 1;
 
-        img.card-icon {
+        img.cardIcon {
           width: 1em;
           margin-right: 0.1em;
         }
       }
 
-      ul.card-tags {
+      ul.cardTags {
         list-style: none;
         text-align: right;
         padding: 0;

@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "components/title";
 
-import "./about.scss";
+import styles from "./about.module.scss";
 
 import AspidaIcon from "assets/icons/aspida.svg";
 import LaravelLogo from "assets/icons/laravel.svg";
@@ -25,15 +25,14 @@ import JOILogo from "./joi.png";
 import Afes73Icon from "./afes73.png";
 
 const AboutPage: React.FC = () => (
-  <>
+  <article className={styles.main}>
     <Title>About</Title>
-    <section id="personal_info">
-      <img className="profile-pic" src="https://fuwa.dev/favicon.png" />
+    <section id={styles.personal_info}>
+      <img className={styles.profilePic} src="https://fuwa.dev/favicon.png" />
       <div>
         <h2>杉山 衣吹 (にこなのにふわわあ)</h2>
         <p>Ibuki Sugiyama</p>
-
-        <table id="profile_table">
+        <table id={styles.profile_table}>
           <tbody>
             <tr>
               <th>Affiliation</th>
@@ -51,7 +50,7 @@ const AboutPage: React.FC = () => (
               <th>OpenPGP Key</th>
               <td>
                 <a href="https://fuwa.dev/fuwa.asc">
-                  <code className="pgp-key">
+                  <code className={styles.pgpKey}>
                     <span>B9C6</span>
                     <span>B4B0</span>
                     <span>956F</span>
@@ -114,24 +113,26 @@ const AboutPage: React.FC = () => (
     </section>
     <section>
       <h2>Skills</h2>
-      <ul className="skills">
-        {[
-          ["C/C++", CppIcon],
-          ["Git", GitIcon],
-          ["PHP", PhpLogo],
-          ["HTML/JS/CSS", Html5Logo],
-          ["TypeScript", TSIcon],
-          ["Vue.js", VueLogo],
-          ["React.js", ReactIcon],
-          ["Docker", DockerLogo],
-          ["Laravel/Lumen", LaravelLogo],
-          ["Linux", ArchLinuxLogo],
-          ["Python3", PythonLogo],
-          ["Java", JavaLogo],
-          ["SQL", SqlLogo],
-        ].map(([name, logo]) => (
+      <ul className={styles.skills}>
+        {(
+          [
+            ["C/C++", CppIcon],
+            ["Git", GitIcon],
+            ["PHP", PhpLogo],
+            ["HTML/JS/CSS", Html5Logo],
+            ["TypeScript", TSIcon],
+            ["Vue.js", VueLogo],
+            ["React.js", ReactIcon],
+            ["Docker", DockerLogo],
+            ["Laravel/Lumen", LaravelLogo],
+            ["Linux", ArchLinuxLogo],
+            ["Python3", PythonLogo],
+            ["Java", JavaLogo],
+            ["SQL", SqlLogo],
+          ] as const
+        ).map(([name, logo]) => (
           <li key={name}>
-            <img src={logo} alt={name} />
+            <img src={logo.src} alt={name} />
             <div>{name}</div>
           </li>
         ))}
@@ -139,22 +140,22 @@ const AboutPage: React.FC = () => (
     </section>
     <section>
       <h2>History</h2>
-      <ul className="timeline">
+      <ul className={styles.timeline}>
         <li aria-hidden="true"></li>
         <TimelineEntry date="2016/04">APCC入部</TimelineEntry>
         <TimelineEntry date="2017/05">競技プログラミング開始</TimelineEntry>
 
-        <TimelineEntry date="2019/02" icon={JOILogo}>
+        <TimelineEntry date="2019/02" icon={JOILogo.src}>
           JOI2018本選
           <br />
           <a href="/log/competitive/joi2019ho">参加記</a>
         </TimelineEntry>
-        <TimelineEntry date="2019/08" icon={JOILogo}>
+        <TimelineEntry date="2019/08" icon={JOILogo.src}>
           JOI夏季セミナー2019参加
           <br />
           <a href="/log/competitive/joiss2019">参加記</a>
         </TimelineEntry>
-        <TimelineEntry date="2020/02" icon={JOILogo}>
+        <TimelineEntry date="2020/02" icon={JOILogo.src}>
           JOI2019本選
           <br />
           <a href="/log/competitive/joi2020ho">参加記</a>
@@ -163,36 +164,36 @@ const AboutPage: React.FC = () => (
           パソコン甲子園2020 グランプリ
         </TimelineEntry>
         <TimelineEntry date="2020/11">APCC引退</TimelineEntry>
-        <TimelineEntry date="2021/02" icon={JOILogo}>
+        <TimelineEntry date="2021/02" icon={JOILogo.src}>
           JOI2020本選
           <br />
           <a href="/log/competitive/joi2021ho">参加記</a>
         </TimelineEntry>
-        <TimelineEntry date="2022/03" icon={AzbLogo}>
+        <TimelineEntry date="2022/03" icon={AzbLogo.src}>
           麻布高等学校 卒業
         </TimelineEntry>
-        <TimelineEntry date="2022/04" icon={UTLogo}>
+        <TimelineEntry date="2022/04" icon={UTLogo.src}>
           東京大学 入学
         </TimelineEntry>
       </ul>
     </section>
     <section>
       <h2>Works</h2>
-      <div className="works">
+      <div className={styles.works}>
         <WorksCard
-          icon={Afes73Icon}
+          icon={Afes73Icon.src}
           title={
             <a href="https://73.afes.info">
               麻布学園 第73回文化祭公式ウェブサイト
             </a>
           }
           tags={[
-            { name: "Vue.js", image: VueLogo },
-            { name: "Lumen", image: LaravelLogo },
-            { name: "MySQL", image: SqlLogo },
+            { name: "Vue.js", image: VueLogo.src },
+            { name: "Lumen", image: LaravelLogo.src },
+            { name: "MySQL", image: SqlLogo.src },
             {
               name: "GitHub",
-              image: GitHubIcon,
+              image: GitHubIcon.src,
               href: "https://github.com/afes-website",
             },
           ]}
@@ -204,15 +205,15 @@ const AboutPage: React.FC = () => (
           </ul>
         </WorksCard>
         <WorksCard
-          icon={Afes73Icon}
+          icon={Afes73Icon.src}
           title="文化祭管理システムCAPPUCCINO"
           tags={[
-            { name: "React.js", image: ReactIcon },
-            { name: "Lumen", image: LaravelLogo },
-            { name: "MySQL", image: SqlLogo },
+            { name: "React.js", image: ReactIcon.src },
+            { name: "Lumen", image: LaravelLogo.src },
+            { name: "MySQL", image: SqlLogo.src },
             {
               name: "GitHub",
-              image: GitHubIcon,
+              image: GitHubIcon.src,
               href: "https://github.com/afes-website",
             },
           ]}
@@ -230,8 +231,8 @@ const AboutPage: React.FC = () => (
         <WorksCard
           title={<a href="https://onlinemathcontest.com">OnlineMathContest</a>}
           tags={[
-            { name: "React.js", image: ReactIcon },
-            { name: "Laravel", image: LaravelLogo },
+            { name: "React.js", image: ReactIcon.src },
+            { name: "Laravel", image: LaravelLogo.src },
           ]}
         >
           <ul>
@@ -246,11 +247,11 @@ const AboutPage: React.FC = () => (
         <WorksCard
           title={<a href="https://oj.fuwa.dev/">Fuwa Online Judge</a>}
           tags={[
-            { name: "Laravel", image: LaravelLogo },
-            { name: "Python", image: PythonLogo },
+            { name: "Laravel", image: LaravelLogo.src },
+            { name: "Python", image: PythonLogo.src },
             {
               name: "GitHub",
-              image: GitHubIcon,
+              image: GitHubIcon.src,
               href: "https://github.com/ibuki2003/onlinejudge",
             },
           ]}
@@ -270,7 +271,7 @@ const AboutPage: React.FC = () => (
           tags={[
             {
               name: "Aspida",
-              image: AspidaIcon,
+              image: AspidaIcon.src,
               href: "https://github.com/aspida/aspida/",
             },
           ]}
@@ -288,24 +289,27 @@ const AboutPage: React.FC = () => (
     <section>
       <h2>More information</h2>
       <ul>
-        <li><a href="/about/deps">Dependencies</a></li>
+        <li>
+          <a href="/about/deps">Dependencies</a>
+        </li>
       </ul>
     </section>
-  </>
+  </article>
 );
 
 const WorksCard: React.FC<{
   icon?: string;
   title: React.ReactNode;
   tags?: { name: string; image: string; href?: string }[];
+  children: React.ReactNode;
 }> = (props) => (
-  <div className="entry-card">
-    <div className="card-header">
-      <h3 className="card-title">
-        {props.icon && <img className="card-icon" src={props.icon} />}
+  <div className={styles.entryCard}>
+    <div className={styles.cardHeader}>
+      <h3 className={styles.cardTitle}>
+        {props.icon && <img className={styles.cardIcon} src={props.icon} />}
         {props.title}
       </h3>
-      <ul className="card-tags">
+      <ul className={styles.cardTags}>
         {props.tags &&
           props.tags.map(({ name, image, href }) => (
             <li key={name}>
@@ -322,7 +326,7 @@ const WorksCard: React.FC<{
           ))}
       </ul>
     </div>
-    <div className="entry-description">{props.children}</div>
+    <div className={styles.entryDescription}>{props.children}</div>
   </div>
 );
 
@@ -331,10 +335,10 @@ const TimelineEntry: React.FC<{
   icon?: string;
   children: React.ReactNode;
 }> = (props) => (
-  <li className="timeline-entry">
-    {props.icon && <img src={props.icon} className="icon" />}
-    <span className="date">{props.date}</span>
-    <span className="detail">{props.children}</span>
+  <li className={styles.timelineEntry}>
+    {props.icon && <img src={props.icon} className={styles.icon} />}
+    <span className={styles.date}>{props.date}</span>
+    <span className={styles.detail}>{props.children}</span>
   </li>
 );
 
