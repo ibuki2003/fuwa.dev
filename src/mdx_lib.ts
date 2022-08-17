@@ -1,11 +1,28 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { promises as fs } from "fs";
 
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import remarkBreaks from "remark-breaks";
+import rehypeKatex from "rehype-katex";
+import rehypeHightlight from "rehype-highlight";
+
 async function parseMDX(file: string) {
   const content = await fs.readFile(file, { encoding: "utf-8" });
   const source = await serialize(content, {
     mdxOptions: {
       baseUrl: file,
+      // prettier-ignore
+      remarkPlugins: [
+        remarkGfm,
+        remarkMath,
+        remarkBreaks,
+      ],
+      // prettier-ignore
+      rehypePlugins: [
+        rehypeKatex,
+        [rehypeHightlight, { subset: false }],
+      ],
       format: file.split(".").at(-1) == "mdx" ? "mdx" : "md",
     },
     parseFrontmatter: true,
