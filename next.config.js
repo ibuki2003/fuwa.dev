@@ -8,6 +8,10 @@ const nextConfig = {
       unoptimized: true,
     },
   },
+
+  optimization: {
+    minimize: true,
+  },
 };
 
 module.exports = nextConfig;
