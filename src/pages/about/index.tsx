@@ -3,6 +3,10 @@ import Title from "components/title";
 
 import styles from "./about.module.scss";
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 const AboutPage: React.FC = () => (
   <article className={styles.main}>
     <Title>About</Title>
