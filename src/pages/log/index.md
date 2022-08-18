@@ -5,7 +5,6 @@
 - [$\phi$関数と冪乗](/log/competitive/phi)
 - [UnionFind木について](/log/competitive/unionfind)
 - [自然数を順序を考慮して分割](/log/competitive/number_split_non_zero)
-- [マクロとオーバーロードがやかましい これが私の自称テンプレです](/log/competitive/template)
 - [AtCoder 青色になるまでにやったこと](/log/competitive/atc_blue)
 
 ## その他
