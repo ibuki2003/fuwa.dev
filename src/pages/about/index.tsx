@@ -165,7 +165,7 @@ const AboutPage: React.FC = () => (
       <h2>Works</h2>
       <div className={styles.works}>
         <WorksCard
-          icon={"/assets/icons/afes73.png"}
+          icon={"/assets/icons/afes73.svg"}
           title={
             <a href="https://73.afes.info">
               麻布学園 第73回文化祭公式ウェブサイト
@@ -189,7 +189,7 @@ const AboutPage: React.FC = () => (
           </ul>
         </WorksCard>
         <WorksCard
-          icon={"/assets/icons/afes73.png"}
+          icon={"/assets/icons/afes73.svg"}
           title="文化祭管理システムCAPPUCCINO"
           tags={[
             { name: "React.js", image: "/assets/icons/react.svg" },
