@@ -2,9 +2,9 @@ import React from "react";
 import Title from "components/title";
 import type { GetStaticProps, GetStaticPaths } from "next";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { promises as fs } from "fs";
-import glob from "fast-glob";
-import parseMDX from "mdx_lib";
+
+import parseMDX from "libs/mdx_parse";
+import { listPages, findPage } from "libs/mdx_serve";
 
 interface Props {
   title: string;
@@ -26,28 +26,12 @@ const MarkdownPage: React.FC<Props> = (props) => {
 
 export default MarkdownPage;
 
-const extensions = ["md", "mdx"];
 const basePath = "./src/pages";
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const slug = context.params?.slug ?? [];
   if (!Array.isArray(slug)) throw new Error();
-  const path = slug.join("/");
-  const file = await Promise.any(
-    extensions.flatMap((e) =>
-      ["", "/index"].map(
-        (suffix) =>
-          new Promise<string>((resolve, reject) => {
-            const p = `${basePath}/${path}${suffix}.${e}`;
-            fs.stat(p)
-              .then((s) => {
-                s.isFile() ? resolve(p) : reject();
-              })
-              .catch(reject);
-          })
-      )
-    )
-  );
+  const file = await findPage(basePath, slug.join("/"));
   const { title, source } = await parseMDX(file);
 
   return {
@@ -56,18 +40,10 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = (
-    await glob(`./**/*.(${extensions.join("|")})`, {
-      dot: true,
-      cwd: basePath,
-      onlyFiles: true,
-    })
-  )
-    .map((f) => f.replace(/\.\w+$/, "").replace(/\/index$/, ""))
-    .filter((p) => p != "index");
-
   return {
-    paths: paths.map((p) => ({ params: { slug: p.split("/") } })),
+    paths: (await listPages(basePath)).map((p) => ({
+      params: { slug: p.path.split("/") },
+    })),
     fallback: false,
   };
 };
