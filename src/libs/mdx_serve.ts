@@ -22,13 +22,16 @@ export async function listPages(basePath: string, withContent?: boolean) {
       onlyFiles: true,
     })
   )
-    .map((f) => f.replace(/\.\w+$/, "").replace(/\/index$/, ""))
-    .filter((p) => p != "index")
-    .map((p) => ({ path: p }));
-
-  if (withContent)
-    paths.forEach((entry) => {
-      Object.assign(entry, matter.read(path.join(basePath, entry.path)));
+    .filter((p) => !p.startsWith("index."))
+    .map((p) => {
+      let entry = { path: p.replace(/\.\w+$/, "").replace(/\/index$/, "") };
+      if (withContent) {
+        entry = {
+          ...matter.read(path.join(basePath, p)),
+          ...entry,
+        };
+      }
+      return entry;
     });
 
   return paths;
