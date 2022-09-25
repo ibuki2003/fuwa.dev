@@ -9,9 +9,9 @@ export const config = {
 
 const AboutPage: React.FC = () => (
   <article className={styles.main}>
-    <Title>About</Title>
+    <Title>About Me</Title>
     <section id={styles.personal_info}>
-      <img className={styles.profilePic} src="/assets/fuwa.svg" />
+      <img className={styles.profilePic} src="/assets/fuwa.svg" alt="" />
       <div>
         <h2>杉山 衣吹 (にこなのにふわわあ)</h2>
         <p>Ibuki Sugiyama</p>
@@ -116,7 +116,7 @@ const AboutPage: React.FC = () => (
           ] as const
         ).map(([name, logo]) => (
           <li key={name}>
-            <img src={logo} alt={name} />
+            <img src={logo} alt="" />
             <div>{name}</div>
           </li>
         ))}
@@ -290,7 +290,7 @@ const WorksCard: React.FC<{
   <div className={styles.entryCard}>
     <div className={styles.cardHeader}>
       <h3 className={styles.cardTitle}>
-        {props.icon && <img className={styles.cardIcon} src={props.icon} />}
+        {props.icon && <img className={styles.cardIcon} src={props.icon} alt="" />}
         {props.title}
       </h3>
       <ul className={styles.cardTags}>
@@ -320,7 +320,7 @@ const TimelineEntry: React.FC<{
   children: React.ReactNode;
 }> = (props) => (
   <li className={styles.timelineEntry}>
-    {props.icon && <img src={props.icon} className={styles.icon} />}
+    {props.icon && <img src={props.icon} className={styles.icon} alt="" />}
     <span className={styles.date}>{props.date}</span>
     <span className={styles.detail}>{props.children}</span>
   </li>
