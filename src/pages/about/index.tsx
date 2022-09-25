@@ -48,6 +48,10 @@ const AboutPage: React.FC = () => (
                 </a>
               </td>
             </tr>
+            <tr>
+              <th>Call sign</th>
+              <td>JJ1FYD</td>
+            </tr>
           </tbody>
         </table>
 
