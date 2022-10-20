@@ -12,7 +12,6 @@ title: ""
 - [配布物とか](/distributes)
 - [OnlineJudgeのヘルプ](/oj_help)
 - [投稿](/posts)
-- [記事(旧)](/article)
 
 ### externals
 - [自室の室温とCO2濃度の記録を試験的に公開してみる](https://fuwa.dev/roomtemp_chart/)
