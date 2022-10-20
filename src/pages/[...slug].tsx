@@ -41,9 +41,11 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: (await listPages(basePath)).map((p) => ({
-      params: { slug: p.path.split("/") },
-    })),
+    paths: (await listPages(basePath))
+      .filter((p) => !p.path.startsWith("posts/"))
+      .map((p) => ({
+        params: { slug: p.path.split("/") },
+      })),
     fallback: false,
   };
 };
