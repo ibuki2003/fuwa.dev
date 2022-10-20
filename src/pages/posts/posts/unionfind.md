@@ -1,6 +1,10 @@
+---
+date: 2019-01-12
+---
+
 # UnionFind木について
 
-[aising2019](https:///atcoder.jp/contests/aising2019)の[C問](https://atcoder.jp/contests/aising2019/tasks/aising2019_c)で出てきた問題で使ったのでまとめ.(19.01.12)
+[aising2019](https:///atcoder.jp/contests/aising2019)の[C問](https://atcoder.jp/contests/aising2019/tasks/aising2019_c)で出てきた問題で使ったのでまとめ.
 
 ## UnionFind木とは?
 
