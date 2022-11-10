@@ -7,7 +7,6 @@ title: ""
 ## こんてんつ
 
 - [About me](/about)
-- [きろく](/log)
 - [チートシート](/cheatsheet)
 - [配布物とか](/distributes)
 - [OnlineJudgeのヘルプ](/oj_help)
