@@ -23,6 +23,7 @@ gtag('config', '${gtag_id}');`,
             />
           </>
         )}
+        <script async src="https://platform.twitter.com/widgets.js" />
       </Head>
       <body>
         <Main />
