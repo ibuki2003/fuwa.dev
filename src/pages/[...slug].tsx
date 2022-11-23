@@ -1,7 +1,8 @@
 import React from "react";
 import Title from "components/title";
 import type { GetStaticProps, GetStaticPaths } from "next";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import MDXRender from "libs/mdx_render";
 
 import parseMDX from "libs/mdx_parse";
 import { listPages, findPage } from "libs/mdx_serve";
@@ -19,7 +20,7 @@ const MarkdownPage: React.FC<Props> = (props) => {
   return (
     <article>
       <Title>{props.title}</Title>
-      <MDXRemote {...props.source} />
+      <MDXRender {...props.source} />
     </article>
   );
 };

@@ -1,7 +1,8 @@
 import React from "react";
 import Title from "components/title";
 import type { GetStaticProps, GetStaticPaths } from "next";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import MDXRender from "libs/mdx_render";
 import dayjs from "dayjs";
 
 import parseMDX from "libs/mdx_parse";
@@ -28,7 +29,7 @@ const MarkdownPage: React.FC<Props> = (props) => {
         <time>{props.date}</time>
       </p>
 
-      <MDXRemote {...props.source} />
+      <MDXRender {...props.source} />
     </article>
   );
 };
