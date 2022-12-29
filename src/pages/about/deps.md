@@ -6,13 +6,11 @@
 
 - ThinkPad X1 Carbon 4th Gen.
 - Google Pixel 4
-- iPad Air Gen3
+- iPad Air Gen5
 - Google Home Mini (Chalk)
 - Nature Remo Mini
 - ChromeCast Ultra
 - ScanSnap iX1500
-
-
 - HHKB Professional Hybrid Type-S
 - Logicool M575
 
@@ -20,8 +18,8 @@
 
 - ArchLinux
 - [Vivaldi](https://vivaldi.com/)
-- neovim
-- SKK
+- Neovim
+- SKK (libskk)
 - [Mouse Dictionary](https://qiita.com/wtetsu/items/c43232c6c44918e977c9)
 - [PaperlessNG](https://paperless-ng.readthedocs.io/)
 - GoodNotes5
