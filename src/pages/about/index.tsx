@@ -283,6 +283,9 @@ const AboutPage: React.FC = () => (
       <h2>More information</h2>
       <ul>
         <li>
+          <a href="/about/system">System Information</a>
+        </li>
+        <li>
           <a href="/about/deps">Dependencies</a>
         </li>
       </ul>
