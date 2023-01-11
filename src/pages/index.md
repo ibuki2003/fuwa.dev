@@ -10,6 +10,7 @@ title: ""
 - [チートシート](/cheatsheet)
 - [配布物とか](/distributes)
 - [OnlineJudgeのヘルプ](/oj_help)
+- [Tools](/tools)
 - [投稿](/posts)
 
 ### externals
