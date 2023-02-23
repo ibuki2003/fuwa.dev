@@ -8,7 +8,7 @@ date: 2023-02-22
 初期設定だと使いものにならないので、その設定の備忘録
 
 ```sh
-stty -F /dev/ttyACM0 min 10 time 2 -hupcl -icrnl -opost -onlcr -isig -icanon -echo
+stty -F /dev/ttyACM0 min 10 time 2 -hupcl -icrnl -opost -onlcr -isig -icanon -echo -ixon
 ```
 
 だいたいはGNU screenによる設定を参考にしてる。
@@ -24,6 +24,7 @@ stty -F /dev/ttyACM0 min 10 time 2 -hupcl -icrnl -opost -onlcr -isig -icanon -ec
 - `-isig`: 割り込みなどの特殊文字を解釈しない (知らないうちにストリームが閉じちゃうのはこれ)
 - `-icanon`: eraseなどの特殊文字を解釈しない
 - `-echo`: エコーバック無効化
+- `-ixon`: XONを無視 (`\x11` `\x13` が来ないのはこれ)
 
 みんなtty向けの機能だから、ただのストリームとして使うには邪魔なんだなぁ。
 
