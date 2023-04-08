@@ -79,9 +79,9 @@ const AboutPage: React.FC = () => (
                 "https://twitter.com/ibuki2003",
               ],
               [
-                "/assets/icons/mastodon.svg",
-                "@fuwa2003@mstdn.jp",
-                "https://mstdn.jp/@fuwa2003",
+                "/assets/icons/misskey_io.svg",
+                "@fuwa2003@misskey.io",
+                "https://misskey.io/@fuwa2003",
               ],
               [
                 "/assets/icons/keybase.png",
