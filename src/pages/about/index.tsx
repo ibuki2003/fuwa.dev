@@ -59,32 +59,32 @@ const AboutPage: React.FC = () => (
           {(
             [
               [
-                "/assets/icons/github.svg",
+                require("./icons/github.svg"),
                 "GitHub@ibuki2003",
                 "https://github.com/ibuki2003",
               ],
               [
-                "/assets/icons/qiita.svg",
+                require("./icons/qiita.svg"),
                 "Qiita@ibuki2003",
                 "https://qiita.com/ibuki2003",
               ],
               [
-                "/assets/icons/zenn.svg",
+                require("./icons/zenn.svg"),
                 "Zenn@fuwa2003",
                 "https://zenn.dev/fuwa2003",
               ],
               [
-                "/assets/icons/twitter.svg",
+                require("./icons/twitter.svg"),
                 "Twitter@ibuki2003",
                 "https://twitter.com/ibuki2003",
               ],
               [
-                "/assets/icons/misskey_io.svg",
+                require("./icons/misskey_io.svg"),
                 "@fuwa2003@misskey.io",
                 "https://misskey.io/@fuwa2003",
               ],
               [
-                "/assets/icons/keybase.png",
+                require("./icons/keybase.png"),
                 "keybase@fuwa2003",
                 "https://keybase.io/fuwa2003",
               ],
@@ -97,7 +97,7 @@ const AboutPage: React.FC = () => (
           ).map(([icon, alt, href]) => (
             <li key={alt}>
               <a href={href}>
-                <img src={icon} alt={alt} title={alt} />
+                <Img src={icon} alt={alt} title={alt} />
               </a>
             </li>
           ))}
@@ -109,23 +109,23 @@ const AboutPage: React.FC = () => (
       <ul className={styles.skills}>
         {(
           [
-            ["C/C++", "/assets/icons/cpp.svg"],
-            ["Git", "/assets/icons/git.svg"],
-            ["PHP", "/assets/icons/php.svg"],
-            ["HTML/JS/CSS", "/assets/icons/html5.svg"],
-            ["TypeScript", "/assets/icons/typescript.svg"],
-            ["Vue.js", "/assets/icons/vue.svg"],
-            ["React.js", "/assets/icons/react.svg"],
-            ["Docker", "/assets/icons/docker.svg"],
-            ["Laravel/Lumen", "/assets/icons/laravel.svg"],
-            ["Linux", "/assets/icons/archlinux.svg"],
-            ["Python3", "/assets/icons/python.svg"],
-            ["Java", "/assets/icons/java.svg"],
-            ["SQL", "/assets/icons/mysql.svg"],
+            ["C/C++", require("./icons/cpp.svg")],
+            ["Git", require("./icons/git.svg")],
+            ["PHP", require("./icons/php.svg")],
+            ["HTML/JS/CSS", require("./icons/html5.svg")],
+            ["TypeScript", require("./icons/typescript.svg")],
+            ["Vue.js", require("./icons/vue.svg")],
+            ["React.js", require("./icons/react.svg")],
+            ["Docker", require("./icons/docker.svg")],
+            ["Laravel/Lumen", require("./icons/laravel.svg")],
+            ["Linux", require("./icons/archlinux.svg")],
+            ["Python3", require("./icons/python.svg")],
+            ["Java", require("./icons/java.svg")],
+            ["SQL", require("./icons/mysql.svg")],
           ] as const
         ).map(([name, logo]) => (
           <li key={name}>
-            <img src={logo} alt="" />
+            <Img src={logo} alt="" />
             <div>{name}</div>
           </li>
         ))}
@@ -138,17 +138,17 @@ const AboutPage: React.FC = () => (
         <TimelineEntry date="2016/04">APCC入部</TimelineEntry>
         <TimelineEntry date="2017/05">競技プログラミング開始</TimelineEntry>
 
-        <TimelineEntry date="2019/02" icon="/assets/icons/joi.png">
+        <TimelineEntry date="2019/02" icon={require("./icons/joi.png")}>
           JOI2018本選
           <br />
           <a href="/posts/joi2019ho">参加記</a>
         </TimelineEntry>
-        <TimelineEntry date="2019/08" icon="/assets/icons/joi.png">
+        <TimelineEntry date="2019/08" icon={require("./icons/joi.png")}>
           JOI夏季セミナー2019参加
           <br />
           <a href="/posts/joiss2019">参加記</a>
         </TimelineEntry>
-        <TimelineEntry date="2020/02" icon="/assets/icons/joi.png">
+        <TimelineEntry date="2020/02" icon={require("./icons/joi.png")}>
           JOI2019本選
           <br />
           <a href="/posts/joi2020ho">参加記</a>
@@ -157,15 +157,15 @@ const AboutPage: React.FC = () => (
           パソコン甲子園2020 グランプリ
         </TimelineEntry>
         <TimelineEntry date="2020/11">APCC引退</TimelineEntry>
-        <TimelineEntry date="2021/02" icon="/assets/icons/joi.png">
+        <TimelineEntry date="2021/02" icon={require("./icons/joi.png")}>
           JOI2020本選
           <br />
           <a href="/posts/joi2021ho">参加記</a>
         </TimelineEntry>
-        <TimelineEntry date="2022/03" icon="/assets/icons/azb.svg">
+        <TimelineEntry date="2022/03" icon={require("./icons/azb.svg")}>
           麻布高等学校 卒業
         </TimelineEntry>
-        <TimelineEntry date="2022/04" icon="/assets/icons/ut.svg">
+        <TimelineEntry date="2022/04" icon={require("./icons/ut.svg")}>
           東京大学 入学
         </TimelineEntry>
       </ul>
@@ -174,19 +174,19 @@ const AboutPage: React.FC = () => (
       <h2>Works</h2>
       <div className={styles.works}>
         <WorksCard
-          icon={"/assets/icons/afes73.svg"}
+          icon={require("./icons/afes73.svg")}
           title={
             <a href="https://73.afes.info">
               麻布学園 第73回文化祭公式ウェブサイト
             </a>
           }
           tags={[
-            { name: "Vue.js", image: "/assets/icons/vue.svg" },
-            { name: "Lumen", image: "/assets/icons/laravel.svg" },
-            { name: "MySQL", image: "/assets/icons/mysql.svg" },
+            { name: "Vue.js", image: require("./icons/vue.svg") },
+            { name: "Lumen", image: require("./icons/laravel.svg") },
+            { name: "MySQL", image: require("./icons/mysql.svg") },
             {
               name: "GitHub",
-              image: "/assets/icons/github.svg",
+              image: require("./icons/github.svg"),
               href: "https://github.com/afes-website",
             },
           ]}
@@ -198,15 +198,15 @@ const AboutPage: React.FC = () => (
           </ul>
         </WorksCard>
         <WorksCard
-          icon={"/assets/icons/afes73.svg"}
+          icon={require("./icons/afes73.svg")}
           title="文化祭管理システムCAPPUCCINO"
           tags={[
-            { name: "React.js", image: "/assets/icons/react.svg" },
-            { name: "Lumen", image: "/assets/icons/laravel.svg" },
-            { name: "MySQL", image: "/assets/icons/mysql.svg" },
+            { name: "React.js", image: require("./icons/react.svg") },
+            { name: "Lumen", image: require("./icons/laravel.svg") },
+            { name: "MySQL", image: require("./icons/mysql.svg") },
             {
               name: "GitHub",
-              image: "/assets/icons/github.svg",
+              image: require("./icons/github.svg"),
               href: "https://github.com/afes-website",
             },
           ]}
@@ -224,8 +224,8 @@ const AboutPage: React.FC = () => (
         <WorksCard
           title={<a href="https://onlinemathcontest.com">OnlineMathContest</a>}
           tags={[
-            { name: "React.js", image: "/assets/icons/react.svg" },
-            { name: "Laravel", image: "/assets/icons/laravel.svg" },
+            { name: "React.js", image: require("./icons/react.svg") },
+            { name: "Laravel", image: require("./icons/laravel.svg") },
           ]}
         >
           <ul>
@@ -240,11 +240,11 @@ const AboutPage: React.FC = () => (
         <WorksCard
           title={<a href="https://oj.fuwa.dev/">Fuwa Online Judge</a>}
           tags={[
-            { name: "Laravel", image: "/assets/icons/laravel.svg" },
-            { name: "Python", image: "/assets/icons/python.svg" },
+            { name: "Laravel", image: require("./icons/laravel.svg") },
+            { name: "Python", image: require("./icons/python.svg") },
             {
               name: "GitHub",
-              image: "/assets/icons/github.svg",
+              image: require("./icons/github.svg"),
               href: "https://github.com/ibuki2003/onlinejudge",
             },
           ]}
@@ -264,7 +264,7 @@ const AboutPage: React.FC = () => (
           tags={[
             {
               name: "Aspida",
-              image: "/assets/icons/aspida.svg",
+              image: require("./icons/aspida.svg"),
               href: "https://github.com/aspida/aspida/",
             },
           ]}
@@ -294,16 +294,16 @@ const AboutPage: React.FC = () => (
 );
 
 const WorksCard: React.FC<{
-  icon?: string;
+  icon?: ImgSrc;
   title: React.ReactNode;
-  tags?: { name: string; image: string; href?: string }[];
+  tags?: { name: string; image: ImgSrc; href?: string }[];
   children: React.ReactNode;
 }> = (props) => (
   <div className={styles.entryCard}>
     <div className={styles.cardHeader}>
       <h3 className={styles.cardTitle}>
         {props.icon && (
-          <img className={styles.cardIcon} src={props.icon} alt="" />
+          <Img className={styles.cardIcon} src={props.icon} alt="" />
         )}
         {props.title}
       </h3>
@@ -313,11 +313,11 @@ const WorksCard: React.FC<{
             <li key={name}>
               {href ? (
                 <a href={href}>
-                  <img src={image} alt={name} />
+                  <Img src={image} alt={name} />
                 </a>
               ) : (
                 <>
-                  <img src={image} alt={name} />
+                  <Img src={image} alt={name} />
                 </>
               )}
             </li>
@@ -330,14 +330,29 @@ const WorksCard: React.FC<{
 
 const TimelineEntry: React.FC<{
   date: string;
-  icon?: string;
+  icon?: ImgSrc;
   children: React.ReactNode;
 }> = (props) => (
   <li className={styles.timelineEntry}>
-    {props.icon && <img src={props.icon} className={styles.icon} alt="" />}
+    {props.icon && <Img src={props.icon} className={styles.icon} alt="" />}
     <span className={styles.date}>{props.date}</span>
     <span className={styles.detail}>{props.children}</span>
   </li>
+);
+
+type ImgObj = { default: { src: string } };
+type ImgSrc = string | ImgObj;
+
+const isImgObject = (src: unknown): src is ImgObj => {
+  // easy and loose check
+  return typeof src === "object" && src !== null && "default" in src;
+};
+
+const Img: React.FC<
+  Omit<React.ImgHTMLAttributes<Element>, "src"> & { src: ImgSrc }
+> = ({ src, ...props }) => (
+  // eslint-disable-next-line jsx-a11y/alt-text
+  <img src={isImgObject(src) ? src.default.src : src} {...props} />
 );
 
 export default AboutPage;
