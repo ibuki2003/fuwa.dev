@@ -6,6 +6,7 @@ import remarkMath from "remark-math";
 import remarkBreaks from "remark-breaks";
 import rehypeKatex from "rehype-katex";
 import rehypeHightlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug";
 import "lowlight/lib/all"; // load all languages
 
 async function parseMDX(file: string) {
@@ -23,6 +24,7 @@ async function parseMDX(file: string) {
       rehypePlugins: [
         rehypeKatex,
         [rehypeHightlight, { subset: false }],
+        rehypeSlug,
       ],
       format: file.split(".").at(-1) == "mdx" ? "mdx" : "md",
     },
