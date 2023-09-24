@@ -6,7 +6,7 @@
     "dev": "next dev",
     "export": "next export && rsync -ram src/pages/ out2 --exclude-from=rsync_ignores.txt",
     "lint": "next lint",
-    "start": "next start"
+    "start": "node server.js"
   },
   "dependencies": {
     "dayjs": "^1.11.5",
