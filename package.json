@@ -4,7 +4,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "export": "next export && rsync -ram src/pages/ out2 --exclude-from=rsync_ignores.txt",
+    "export": "next export && rsync -ram src/pages/ out --exclude-from=rsync_ignores.txt",
     "lint": "next lint",
     "start": "node server.js"
   },
