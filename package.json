@@ -4,7 +4,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "export": "next export",
+    "export": "next export && rsync -ram src/pages/ out2 --exclude-from=rsync_ignores.txt",
     "lint": "next lint",
     "start": "next start"
   },
@@ -29,6 +29,7 @@
     "@types/react-dom": "^18.0.6",
     "eslint": "^8.22.0",
     "eslint-config-next": "^12.2.5",
+    "express": "^4.18.2",
     "prettier": "^2.7.1",
     "sass": "^1.54.4",
     "typescript": "^4.7.4"
