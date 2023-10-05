@@ -2,4 +2,4 @@
 
 ちょっと便利そうなツールを集めます(予定)
 
-- [fullscreen](/tools/fullscreen)
+- [fullscreen](/tools/fullscreen/)

@@ -5,11 +5,11 @@ Fuwa Online Judge/APCC Online Judgeのヘルプが書かれています
 
 ## もくじ
 
-1. [OJについて](/oj_help/1)
-2. [提出ガイド](/oj_help/2)
+1. [OJについて](/oj_help/1/)
+2. [提出ガイド](/oj_help/2/)
    1. 提出方法
    2. 使える言語
-3. [問題作成ガイド](/oj_help/3)
+3. [問題作成ガイド](/oj_help/3/)
 
 ## 困った時は
 

@@ -141,17 +141,17 @@ const AboutPage: React.FC = () => (
         <TimelineEntry date="2019/02" icon="./icons/joi.png">
           JOI2018本選
           <br />
-          <a href="/posts/joi2019ho">参加記</a>
+          <a href="/posts/joi2019ho/">参加記</a>
         </TimelineEntry>
         <TimelineEntry date="2019/08" icon="./icons/joi.png">
           JOI夏季セミナー2019参加
           <br />
-          <a href="/posts/joiss2019">参加記</a>
+          <a href="/posts/joiss2019/">参加記</a>
         </TimelineEntry>
         <TimelineEntry date="2020/02" icon="./icons/joi.png">
           JOI2019本選
           <br />
-          <a href="/posts/joi2020ho">参加記</a>
+          <a href="/posts/joi2020ho/">参加記</a>
         </TimelineEntry>
         <TimelineEntry date="2020/11">
           パソコン甲子園2020 グランプリ
@@ -160,7 +160,7 @@ const AboutPage: React.FC = () => (
         <TimelineEntry date="2021/02" icon="./icons/joi.png">
           JOI2020本選
           <br />
-          <a href="/posts/joi2021ho">参加記</a>
+          <a href="/posts/joi2021ho/">参加記</a>
         </TimelineEntry>
         <TimelineEntry date="2022/03" icon="./icons/azb.svg">
           麻布高等学校 卒業
@@ -283,10 +283,10 @@ const AboutPage: React.FC = () => (
       <h2>More information</h2>
       <ul>
         <li>
-          <a href="/about/system">System Information</a>
+          <a href="/about/system/">System Information</a>
         </li>
         <li>
-          <a href="/about/deps">Dependencies</a>
+          <a href="/about/deps/">Dependencies</a>
         </li>
       </ul>
     </section>

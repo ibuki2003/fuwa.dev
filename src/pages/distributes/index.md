@@ -4,7 +4,7 @@
 
 ## DTM関係
 
-- [FuwaSharpComp](/distributes/fuwa_sharp_comp)
+- [FuwaSharpComp](/distributes/fuwa_sharp_comp/)
 
 ## その他
 

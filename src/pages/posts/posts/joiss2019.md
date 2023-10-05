@@ -48,5 +48,5 @@ https://www.ioi-jp.org/seminar/2019/summer-semi.html
 
 ## リンク
 
-[発表スライド](/pf15)
+[発表スライド](/pf15/)
 [夏季セミ中のツイート](https://twitter.com/search?q=%23JOIss%20from%3Aibuki2003)
