@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const file = await findPage(basePath, slug);
   const { title, source } = await parseMDX(file);
 
-  const date = source.frontmatter?.date;
+  const date = source.frontmatter?.date as string;
   if (date === undefined) throw new Error("no date");
   const datestr = dayjs(date).format("YYYY-MM-DD");
   source.frontmatter = {};
