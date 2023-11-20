@@ -40,6 +40,8 @@ var _paq = window._paq = window._paq || [];
           </>
         )}
         <script async src="https://platform.twitter.com/widgets.js" />
+        <link rel="me" href="https://misskey.io/@fuwa2003" />
+        <link rel="me" href="https://twitter.com/ibuki2003" />
       </Head>
       <body>
         <Main />

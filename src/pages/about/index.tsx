@@ -7,6 +7,44 @@ export const config = {
   unstable_runtimeJS: false,
 };
 
+const links = [
+  [
+    "./icons/github.svg",
+    "GitHub@ibuki2003",
+    "https://github.com/ibuki2003",
+  ],
+  [
+    "./icons/qiita.svg",
+    "Qiita@ibuki2003",
+    "https://qiita.com/ibuki2003",
+  ],
+  [
+    "./icons/zenn.svg",
+    "Zenn@fuwa2003",
+    "https://zenn.dev/fuwa2003",
+  ],
+  [
+    "./icons/twitter.svg",
+    "Twitter@ibuki2003",
+    "https://twitter.com/ibuki2003",
+  ],
+  [
+    "./icons/misskey_io.svg",
+    "@fuwa2003@misskey.io",
+    "https://misskey.io/@fuwa2003",
+  ],
+  [
+    "./icons/keybase.png",
+    "keybase@fuwa2003",
+    "https://keybase.io/fuwa2003",
+  ],
+  [
+    "https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fibuki2003",
+    "AtCoder@ibuki2003",
+    "https://atcoder.jp/users/ibuki2003",
+  ],
+] as const
+
 const AboutPage: React.FC = () => (
   <article className={styles.main}>
     <Title>About Me</Title>
@@ -55,53 +93,17 @@ const AboutPage: React.FC = () => (
           </tbody>
         </table>
 
-        <ul className={styles.linkIcons}>
-          {(
-            [
-              [
-                "./icons/github.svg",
-                "GitHub@ibuki2003",
-                "https://github.com/ibuki2003",
-              ],
-              [
-                "./icons/qiita.svg",
-                "Qiita@ibuki2003",
-                "https://qiita.com/ibuki2003",
-              ],
-              [
-                "./icons/zenn.svg",
-                "Zenn@fuwa2003",
-                "https://zenn.dev/fuwa2003",
-              ],
-              [
-                "./icons/twitter.svg",
-                "Twitter@ibuki2003",
-                "https://twitter.com/ibuki2003",
-              ],
-              [
-                "./icons/misskey_io.svg",
-                "@fuwa2003@misskey.io",
-                "https://misskey.io/@fuwa2003",
-              ],
-              [
-                "./icons/keybase.png",
-                "keybase@fuwa2003",
-                "https://keybase.io/fuwa2003",
-              ],
-              [
-                "https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fibuki2003",
-                "AtCoder@ibuki2003",
-                "https://atcoder.jp/users/ibuki2003",
-              ],
-            ] as const
-          ).map(([icon, alt, href]) => (
-            <li key={alt}>
-              <a href={href}>
-                <Img src={icon} alt={alt} title={alt} />
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className={styles.links}>
+          <ul className={styles.linkIcons}>
+            {links.filter(a => a[0]).map(([icon, alt, href]) => (
+              <li key={alt}>
+                <a href={href} rel="me">
+                  <Img src={icon} alt={alt} title={alt} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
     <section>
