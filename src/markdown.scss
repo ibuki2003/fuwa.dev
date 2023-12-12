@@ -66,4 +66,8 @@ blockquote {
   font-style: italic;
 }
 
+img {
+  max-width: 100%;
+}
+
 @import "highlight.js/scss/github.scss";
