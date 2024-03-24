@@ -19,8 +19,8 @@ export const config = {
 const MarkdownPage: React.FC<Props> = (props) => {
   return (
     <article>
-      <Title>投稿一覧</Title>
-      <h1>投稿一覧</h1>
+      <Title>記事一覧</Title>
+      <h1>記事一覧</h1>
       <ul>
         {props.posts.map((p) => (
           <li key={p.href}>
