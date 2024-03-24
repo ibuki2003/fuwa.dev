@@ -4,14 +4,14 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: true,
   experimental: {
-    images: {
-      unoptimized: true,
-    },
+    // images: {
+    //   unoptimized: true,
+    // },
   },
 
-  optimization: {
-    minimize: true,
-  },
+  // optimization: {
+  //   minimize: true,
+  // },
 };
 
 module.exports = nextConfig;

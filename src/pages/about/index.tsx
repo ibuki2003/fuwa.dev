@@ -58,9 +58,11 @@ const AboutPage: React.FC = () => (
             <tr>
               <th>Affiliation</th>
               <td>
-                東京大学 (教養学部: 前期課程)
+                東京大学 (理科一類, 理学部進学予定)
                 <br />
-                (2027/03 卒業予定)
+                The University of Tokyo
+                <br />
+                (B1, 2027/03 卒業予定)
               </td>
             </tr>
             <tr>
@@ -107,30 +109,31 @@ const AboutPage: React.FC = () => (
       </div>
     </section>
     <section>
-      <h2>Skills</h2>
+      <h2>Skills / Languages</h2>
       <ul className={styles.skills}>
         {(
           [
             ["C/C++", "./icons/cpp.svg"],
-            ["Git", "./icons/git.svg"],
-            ["PHP", "./icons/php.svg"],
+            ["Rust", "./icons/rust.svg"],
             ["HTML/JS/CSS", "./icons/html5.svg"],
             ["TypeScript", "./icons/typescript.svg"],
-            ["Vue.js", "./icons/vue.svg"],
+            ["PHP", "./icons/php.svg"],
             ["React.js", "./icons/react.svg"],
-            ["Docker", "./icons/docker.svg"],
-            ["Laravel/Lumen", "./icons/laravel.svg"],
-            ["Linux", "./icons/archlinux.svg"],
+            ["Vue.js", "./icons/vue.svg"],
             ["Python3", "./icons/python.svg"],
+            ["RDB / SQL", "./icons/mysql.svg"],
             ["Java", "./icons/java.svg"],
-            ["SQL", "./icons/mysql.svg"],
-          ] as const
-        ).map(([name, logo]) => (
-          <li key={name}>
-            <Img src={logo} alt="" />
-            <div>{name}</div>
-          </li>
-        ))}
+            ["Laravel (,Lumen)", "./icons/laravel.svg"],
+            ["Git", "./icons/git.svg"],
+            ["Linux", "./icons/archlinux.svg"],
+            ["Docker", "./icons/docker.svg"],
+          ] as const)
+          .map(([name, logo]) => (
+            <li key={name}>
+              <Img src={logo} alt="" />
+              <div>{name}</div>
+            </li>
+          ))}
       </ul>
     </section>
     <section>
@@ -158,7 +161,6 @@ const AboutPage: React.FC = () => (
         <TimelineEntry date="2020/11">
           パソコン甲子園2020 グランプリ
         </TimelineEntry>
-        <TimelineEntry date="2020/11">APCC引退</TimelineEntry>
         <TimelineEntry date="2021/02" icon="./icons/joi.png">
           JOI2020本選
           <br />
@@ -173,35 +175,11 @@ const AboutPage: React.FC = () => (
       </ul>
     </section>
     <section>
-      <h2>Works</h2>
+      <h2>Notable Works</h2>
       <div className={styles.works}>
         <WorksCard
           icon="./icons/afes73.svg"
-          title={
-            <a href="https://73.afes.info">
-              麻布学園 第73回文化祭公式ウェブサイト
-            </a>
-          }
-          tags={[
-            { name: "Vue.js", image: "./icons/vue.svg" },
-            { name: "Lumen", image: "./icons/laravel.svg" },
-            { name: "MySQL", image: "./icons/mysql.svg" },
-            {
-              name: "GitHub",
-              image: "./icons/github.svg",
-              href: "https://github.com/afes-website",
-            },
-          ]}
-        >
-          <ul>
-            <li>2019/12〜2020/11</li>
-            <li>初チーム開発</li>
-            <li>たくさんの来場/閲覧 ありがとうございました!</li>
-          </ul>
-        </WorksCard>
-        <WorksCard
-          icon="./icons/afes73.svg"
-          title="文化祭管理システムCAPPUCCINO"
+          title="麻布学園 文化祭管理システムCAPPUCCINO"
           tags={[
             { name: "React.js", image: "./icons/react.svg" },
             { name: "Lumen", image: "./icons/laravel.svg" },
@@ -220,7 +198,6 @@ const AboutPage: React.FC = () => (
                 開発・運用記
               </a>
             </li>
-            <li>たくさんの来場ありがとうございました!</li>
           </ul>
         </WorksCard>
         <WorksCard
@@ -231,12 +208,7 @@ const AboutPage: React.FC = () => (
           ]}
         >
           <ul>
-            <li>2020/09〜</li>
-            <li>
-              <a href="https://twitter.com/OMathC_official">
-                Twitter@OmathC_official
-              </a>
-            </li>
+            <li>worked in 2020/09〜2020/12</li>
           </ul>
         </WorksCard>
         <WorksCard
@@ -253,42 +225,44 @@ const AboutPage: React.FC = () => (
         >
           <ul>
             <li>2018/11〜 (1世代目:2017/10〜2018/10)</li>
-            <li>Laravel</li>
-            <li>BootStrap</li>
           </ul>
         </WorksCard>
         <WorksCard
-          title={
-            <a href="https://github.com/aspida/eslint-plugin-aspida/">
-              eslint-plugin-aspida
-            </a>
-          }
+          icon="./icons/pskey.png"
+          title={<a href="https://github.com/ibuki2003/pskey">PSkey</a>}
           tags={[
-            {
-              name: "Aspida",
-              image: "./icons/aspida.svg",
-              href: "https://github.com/aspida/aspida/",
-            },
+            { name: "React Native", image: "./icons/react.svg" },
           ]}
         >
           <ul>
-            <li>2020/07〜</li>
+            <li>2023/07〜</li>
             <li>
-              <a href="https://github.com/aspida/aspida/">aspida</a>
-              の型定義支援用eslintプラグイン
+              <a href="https://misskey-hub.net/">Misskey</a> Client App for Android
+            </li>
+          </ul>
+        </WorksCard>
+        <WorksCard
+          title={<a href="https://github.com/ibuki2003/morsecord">MorseCord</a>}
+          tags={[
+            { name: "Discord", image: "./icons/discord.svg" },
+            { name: "Rust", image: "./icons/rust.svg" },
+          ]}
+        >
+          <ul>
+            <li>2023/07〜</li>
+            <li>
+              モールス符号聞き取り練習 Discord Bot
             </li>
           </ul>
         </WorksCard>
       </div>
+      <p><a href="https://github.com/ibuki2003">And more at GitHub</a></p>
     </section>
     <section>
       <h2>More information</h2>
       <ul>
         <li>
           <a href="/about/system/">System Information</a>
-        </li>
-        <li>
-          <a href="/about/deps/">Dependencies</a>
         </li>
       </ul>
     </section>
@@ -302,31 +276,29 @@ const WorksCard: React.FC<{
   children: React.ReactNode;
 }> = (props) => (
   <div className={styles.entryCard}>
-    <div className={styles.cardHeader}>
-      <h3 className={styles.cardTitle}>
-        {props.icon && (
-          <Img className={styles.cardIcon} src={props.icon} alt="" />
-        )}
-        {props.title}
-      </h3>
-      <ul className={styles.cardTags}>
-        {props.tags &&
-          props.tags.map(({ name, image, href }) => (
-            <li key={name}>
-              {href ? (
-                <a href={href}>
-                  <Img src={image} alt={name} />
-                </a>
-              ) : (
-                <>
-                  <Img src={image} alt={name} />
-                </>
-              )}
-            </li>
-          ))}
-      </ul>
-    </div>
+    <h3 className={styles.cardTitle}>
+      {props.icon && (
+        <Img className={styles.cardIcon} src={props.icon} alt="" />
+      )}
+      {props.title}
+    </h3>
     <div className={styles.entryDescription}>{props.children}</div>
+    <ul className={styles.cardTags}>
+      {props.tags &&
+        props.tags.map(({ name, image, href }) => (
+          <li key={name}>
+            {href ? (
+              <a href={href}>
+                <Img src={image} alt={name} />
+              </a>
+            ) : (
+              <>
+                <Img src={image} alt={name} />
+              </>
+            )}
+          </li>
+        ))}
+    </ul>
   </div>
 );
 
