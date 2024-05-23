@@ -1,0 +1,592 @@
+---
+import Layout from "@/layouts/default.astro";
+import { Image } from "astro:assets";
+
+const links = [
+  [
+    import("./_icons/github.svg"),
+    "GitHub@ibuki2003",
+    "https://github.com/ibuki2003",
+  ],
+  [
+    import("./_icons/qiita.svg"),
+    "Qiita@ibuki2003",
+    "https://qiita.com/ibuki2003",
+  ],
+  [import("./_icons/zenn.svg"), "Zenn@fuwa2003", "https://zenn.dev/fuwa2003"],
+  [
+    import("./_icons/twitter.svg"),
+    "Twitter@ibuki2003",
+    "https://twitter.com/ibuki2003",
+  ],
+  [
+    import("./_icons/misskey_io.svg"),
+    "@fuwa2003@misskey.io",
+    "https://misskey.io/@fuwa2003",
+  ],
+  [
+    import("./_icons/keybase.png"),
+    "keybase@fuwa2003",
+    "https://keybase.io/fuwa2003",
+  ],
+  [
+    "https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fibuki2003",
+    "AtCoder@ibuki2003",
+    "https://atcoder.jp/users/ibuki2003",
+  ],
+] as const;
+---
+
+<Layout title="About Me">
+  <article class="main">
+    <section id="personal_info">
+      <img class="profilePic" src="/assets/fuwa.svg" alt="" />
+      <div>
+        <h2>杉山 衣吹 (にこなのにふわわあ)</h2>
+        <p>Ibuki Sugiyama</p>
+        <table id="profile_table">
+          <tbody>
+            <tr>
+              <th>Affiliation</th>
+              <td>
+                東京大学 (理科一類, 理学部進学予定)
+                <br />
+                The University of Tokyo
+                <br />
+                (B1, 2027/03 卒業予定)
+              </td>
+            </tr>
+            <tr>
+              <th>Date of Birth</th>
+              <td>2003/04/26</td>
+            </tr>
+            <tr>
+              <th>OpenPGP Key</th>
+              <td>
+                <a href="https://fuwa.dev/fuwa.asc">
+                  <code class="pgpKey">
+                    <span>B9C6</span>
+                    <span>B4B0</span>
+                    <span>956F</span>
+                    <span>BAE9</span>
+                    <span>456E</span>
+                    <span>2B38</span>
+                    <span>615E</span>
+                    <span>83E8</span>
+                    <span>4465</span>
+                    <span>1088</span>
+                  </code>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th>Call sign</th>
+              <td>JJ1FYD</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="links">
+          <ul class="linkIcons">
+            {
+              links
+                .filter((a) => a[0])
+                .map(([icon, alt, href]) => (
+                  <li>
+                    <a href={href} rel="me">
+                      {icon instanceof Promise ? (
+                        <Image src={icon} alt={alt} title={alt} />
+                      ) : (
+                        <img src={icon} alt={alt} title={alt} />
+                      )}
+                    </a>
+                  </li>
+                ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Skills / Languages</h2>
+      <ul class="skills">
+        {
+          (
+            [
+              ["C/C++", import("./_icons/cpp.svg")],
+              ["Rust", import("./_icons/rust.svg")],
+              ["HTML/JS/CSS", import("./_icons/html5.svg")],
+              ["TypeScript", import("./_icons/typescript.svg")],
+              ["PHP", import("./_icons/php.svg")],
+              ["React.js", import("./_icons/react.svg")],
+              ["Vue.js", import("./_icons/vue.svg")],
+              ["Python3", import("./_icons/python.svg")],
+              ["RDB / SQL", import("./_icons/mysql.svg")],
+              ["Java", import("./_icons/java.svg")],
+              ["Laravel (,Lumen)", import("./_icons/laravel.svg")],
+              ["Git", import("./_icons/git.svg")],
+              ["Linux", import("./_icons/archlinux.svg")],
+              ["Docker", import("./_icons/docker.svg")],
+            ] as const
+          ).map(([name, logo]) => (
+            <li>
+              <Image src={logo} alt="" />
+              <div>{name}</div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <section>
+      <h2>History</h2>
+      <ul class="timeline">
+        <li aria-hidden="true"></li>
+        <li class="timelineEntry">
+          <span class="date">2016/04</span>
+          <span class="detail">APCC入部</span>
+        </li>
+        <li class="timelineEntry">
+          <span class="date">2017/05</span>
+          <span class="detail">競技プログラミング開始</span>
+        </li>
+        <li class="timelineEntry">
+          <Image src={import("./_icons/joi.png")} class="icon" alt="" />
+          <span class="date">2019/02</span>
+          <span class="detail">
+            JOI2018本選 <br />
+            <a href="/posts/joi2019ho/">参加記</a>
+          </span>
+        </li>
+        <li class="timelineEntry">
+          <Image src={import("./_icons/joi.png")} class="icon" alt="" />
+          <span class="date">2019/08</span>
+          <span class="detail">
+            JOI夏季セミナー2019参加 <br />
+            <a href="/posts/joiss2019/">参加記</a>
+          </span>
+        </li>
+        <li class="timelineEntry">
+          <Image src={import("./_icons/joi.png")} class="icon" alt="" />
+          <span class="date">2020/02</span>
+          <span class="detail">
+            JOI2019本選 <br />
+            <a href="/posts/joi2020ho/">参加記</a>
+          </span>
+        </li>
+        <li class="timelineEntry">
+          <span class="date">2020/11</span>
+          <span class="detail">パソコン甲子園2020 グランプリ</span>
+        </li>
+        <li class="timelineEntry">
+          <Image src={import("./_icons/joi.png")} class="icon" alt="" />
+          <span class="date">2021/02</span>
+          <span class="detail">
+            JOI2020本選 <br />
+            <a href="/posts/joi2021ho/">参加記</a>
+          </span>
+        </li>
+        <li class="timelineEntry">
+          <Image src={import("./_icons/azb.svg")} class="icon" alt="" />
+          <span class="date">2022/03</span>
+          <span class="detail">麻布高等学校 卒業</span>
+        </li>
+        <li class="timelineEntry">
+          <Image src={import("./_icons/ut.svg")} class="icon" alt="" />
+          <span class="date">2022/04</span>
+          <span class="detail">東京大学 入学</span>
+        </li>
+      </ul>
+    </section>
+    <!--<section>
+      <h2>Notable Works</h2>
+      <div class="works">
+        <WorksCard
+          icon="./icons/afes73.svg"
+          title="麻布学園 文化祭管理システムCAPPUCCINO"
+          tags={[
+            { name: "React.js", image: "./icons/react.svg" },
+            { name: "Lumen", image: "./icons/laravel.svg" },
+            { name: "MySQL", image: "./icons/mysql.svg" },
+            {
+              name: "GitHub",
+              image: "./icons/github.svg",
+              href: "https://github.com/afes-website",
+            },
+          ]}
+        >
+          <ul>
+            <li>2020/12〜2021/11</li>
+            <li>
+              <a href="https://zenn.dev/su8ru/articles/cappuccino-system">
+                開発・運用記
+              </a>
+            </li>
+          </ul>
+        </WorksCard>
+        <WorksCard
+          title={<a href="https://onlinemathcontest.com">OnlineMathContest</a>}
+          tags={[
+            { name: "React.js", image: "./icons/react.svg" },
+            { name: "Laravel", image: "./icons/laravel.svg" },
+          ]}
+        >
+          <ul>
+            <li>worked in 2020/09〜2020/12</li>
+          </ul>
+        </WorksCard>
+        <WorksCard
+          title={<a href="https://oj.fuwa.dev/">Fuwa Online Judge</a>}
+          tags={[
+            { name: "Laravel", image: "./icons/laravel.svg" },
+            { name: "Python", image: "./icons/python.svg" },
+            {
+              name: "GitHub",
+              image: "./icons/github.svg",
+              href: "https://github.com/ibuki2003/onlinejudge",
+            },
+          ]}
+        >
+          <ul>
+            <li>2018/11〜 (1世代目:2017/10〜2018/10)</li>
+          </ul>
+        </WorksCard>
+        <WorksCard
+          icon="./icons/pskey.png"
+          title={<a href="https://github.com/ibuki2003/pskey">PSkey</a>}
+          tags={[
+            { name: "React Native", image: "./icons/react.svg" },
+          ]}
+        >
+          <ul>
+            <li>2023/07〜</li>
+            <li>
+              <a href="https://misskey-hub.net/">Misskey</a> Client App for Android
+            </li>
+          </ul>
+        </WorksCard>
+        <WorksCard
+          title={<a href="https://github.com/ibuki2003/morsecord">MorseCord</a>}
+          tags={[
+            { name: "Discord", image: "./icons/discord.svg" },
+            { name: "Rust", image: "./icons/rust.svg" },
+          ]}
+        >
+          <ul>
+            <li>2023/07〜</li>
+            <li>
+              モールス符号聞き取り練習 Discord Bot
+            </li>
+          </ul>
+        </WorksCard>
+      </div>
+      <p><a href="https://github.com/ibuki2003">And more at GitHub</a></p>
+    </section>
+    -->
+    <section>
+      <h2>More information</h2>
+      <ul>
+        <li>
+          <a href="/about/system/">System Information</a>
+        </li>
+      </ul>
+    </section>
+  </article>
+</Layout>
+
+<!--
+// const WorksCard: React.FC<{
+//   icon?: ImgSrc;
+//   title: React.ReactNode;
+//   tags?: { name: string; image: ImgSrc; href?: string }[];
+//   children: React.ReactNode;
+// }> = (props) => (
+//   <div class="entryCard">
+//     <h3 class="cardTitle">
+//       {props.icon && (
+//         <Img class="cardIcon" src={props.icon} alt="" />
+//       )}
+//       {props.title}
+//     </h3>
+//     <div class="entryDescription">{props.children}</div>
+//     <ul class="cardTags">
+//       {props.tags &&
+//         props.tags.map(({ name, image, href }) => (
+//           <li key={name}>
+//             {href ? (
+//               <a href={href}>
+//                 <Img src={image} alt={name} />
+//               </a>
+//             ) : (
+//               <>
+//                 <Img src={image} alt={name} />
+//               </>
+//             )}
+//           </li>
+//         ))}
+//     </ul>
+//   </div>
+// </Layout>
+
+// const TimelineEntry: React.FC<{
+//   date: string;
+//   icon?: ImgSrc;
+//   children: React.ReactNode;
+// }> = (props) => (
+// );
+//
+// type ImgObj = { default: { src: string } };
+// type ImgSrc = string | ImgObj;
+//
+// const isImgObject = (src: unknown): src is ImgObj => {
+//   // easy and loose check
+//   return typeof src === "object" && src !== null && "default" in src;
+// };
+//
+// const Img: React.FC<
+//   Omit<React.ImgHTMLAttributes<Element>, "src"> & { src: ImgSrc }
+// > = ({ src, ...props }) => (
+//   // eslint-disable-next-line jsx-a11y/alt-text
+//   <img src={isImgObject(src) ? src.default.src : src} {...props} />
+// );
+//
+// export default AboutPage;
+-->
+
+<style lang="scss">
+  section.main:not(:last-child) {
+    margin-bottom: 3rem;
+    // border-bottom: 1px solid rgba(50, 50, 50, 0.3);
+    // border-radius: 0.3rem;
+    // box-shadow: 2px 2px 5px 1px rgba(15, 10, 5, 0.10);
+    // padding: 0.5rem;
+  }
+
+  section#personal_info {
+    display: flex;
+    place-content: center;
+
+    img.profilePic {
+      height: 15rem;
+      width: 15rem;
+      border: 1px solid rgba(50, 50, 50, 0.3);
+      margin-right: 2rem;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 1rem;
+
+      tr {
+        background: transparent !important;
+        border: none;
+
+        th {
+          border-right: 1px solid rgba(50, 50, 50, 0.1);
+          text-align: right;
+          width: 40%;
+        }
+      }
+
+      &#profile_table tr {
+        height: 2.5em;
+      }
+    }
+
+    .pgpKey span:not(:last-child):after {
+      content: " ";
+    }
+
+    .links {
+      width: fit-content;
+      margin-left: auto;
+
+      a {
+        text-decoration: none;
+      }
+
+      img {
+        height: 1.2em;
+        width: auto;
+      }
+
+      .linkIcons {
+        padding-left: 0;
+        margin-top: 2rem;
+        text-align: right;
+
+        li {
+          display: inline;
+          margin-right: 1rem;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    section#personal_info {
+      display: block;
+      img.profilePic {
+        width: 100%;
+        height: auto;
+        margin: 0 !important;
+      }
+    }
+  }
+
+  ul.skills {
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+    list-style: none;
+    padding: 0;
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 5em;
+      margin: 1em;
+
+      img {
+        object-fit: contain;
+        width: 5em;
+        height: 5em;
+        margin-bottom: 1em;
+      }
+      div {
+        text-align: center;
+      }
+    }
+  }
+
+  $timeline-color: #99aaaa;
+  ul.timeline {
+    list-style: none;
+    padding-left: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    li {
+      display: flex;
+      position: relative;
+      margin-top: 1.5em;
+      padding-left: 2em;
+
+      &:after {
+        content: "";
+        height: calc(100% + 1.6em);
+
+        border-left: 2px solid $timeline-color;
+        position: absolute;
+        top: 0;
+        left: calc(1.5em / 2 - 1px);
+        z-index: 5;
+      }
+
+      &.timelineEntry {
+        &:before {
+          content: "";
+          width: 1.2em;
+          height: 1.2em;
+          border-radius: 50%;
+          background: $timeline-color;
+          border: 5px solid white;
+          position: absolute;
+          left: 0.15em;
+          z-index: 10;
+        }
+
+        .icon {
+          width: 1.5em;
+          height: 1.5em;
+          background: white;
+          border: 1px solid white;
+          z-index: 11;
+          position: absolute;
+          left: 0em;
+          top: -0.25em;
+        }
+
+        .date {
+          margin-right: 1em;
+        }
+        .detail {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+
+  .works {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    place-self: center;
+
+    .entryCard {
+      width: calc(50% - 1.5rem);
+    }
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      .entryCard {
+        width: 100%;
+      }
+    }
+    gap: 1.5rem;
+
+    .entryCard {
+      border-radius: 0.3rem;
+      box-shadow: 2px 2px 5px 2px rgba(15, 10, 5, 0.1);
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+
+      h3 {
+        font-size: 1.3em;
+      }
+
+      .cardTitle {
+        font-size: 1.2em;
+        margin-right: 0.5em;
+        flex-grow: 1;
+
+        img.cardIcon {
+          width: 1em;
+          margin-right: 0.1em;
+        }
+      }
+
+      .entryDescription {
+        flex-grow: 1;
+        ul {
+          padding-left: 1.5em;
+        }
+      }
+
+      ul.cardTags {
+        list-style: none;
+        text-align: right;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        li {
+          display: block;
+          margin-right: 0.5em;
+          a > img {
+            border-bottom: 1px solid;
+            filter: drop-shadow(1px 1px 0.2em rgba(#aaaaff, 1));
+          }
+          img {
+            display: block;
+            object-fit: contain;
+            width: 1.2em;
+            height: 1.2em;
+          }
+        }
+      }
+    }
+  }
+</style>
