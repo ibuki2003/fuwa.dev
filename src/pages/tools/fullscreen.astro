@@ -1,0 +1,28 @@
+---
+import Layout from "@/layouts/default.astro";
+---
+
+<Layout title="Full Screen">
+  <article>
+    <h1>Full Screen</h1>
+    <p>for screen cleaning, etc.</p>
+    <div id="black" style={{ backgroundColor: 'black' }} />
+    <div id="white" style={{ backgroundColor: 'white' }} />
+
+    <button id="btn_black">Black</button>
+    <button id="btn_white">White</button>
+  </article>
+</Layout>
+
+<script>
+function start(id: string) {
+  const targ = document.getElementById(id);
+  // @ts-ignore
+  const requestFullScreen = targ.requestFullscreen || targ.mozRequestFullScreen || targ.webkitRequestFullScreen || targ.msRequestFullscreen;
+
+  requestFullScreen.call(targ);
+}
+
+document.getElementById('btn_black')!.addEventListener('click', () => start('black'));
+document.getElementById('btn_white')!.addEventListener('click', () => start('white'));
+</script>
