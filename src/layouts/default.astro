@@ -1,9 +1,11 @@
 ---
+import "@/app.scss";
+
 const t = Astro.props.title;
 const title = t ? `${t} - ふわわあのへや` : `ふわわあのへや`;
 
-import "@/app.scss";
-// import "@/styles/globals.css";
+const enable_tracking = import.meta.env.PROD;
+
 ---
 
 <html>
@@ -11,47 +13,29 @@ import "@/app.scss";
     <meta charset="utf-8" />
     <title>{title}</title>
     {
-      process.env.NODE_ENV == "production" && (
-        <>
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${gtag_id}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${gtag_id}');`,
-            }}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-var _paq = window._paq = window._paq || [];
-/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-_paq.push(['trackPageView']);
-_paq.push(['enableLinkTracking']);
-(function() {
-var u="//matomo.fuwa.dev/";
-_paq.push(['setTrackerUrl', u+'matomo.php']);
-_paq.push(['setSiteId', '1']);
-var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-})();`,
-            }}
-          />
-        </>
+      enable_tracking && (
+        <script is:inline>
+          var _paq = window._paq = window._paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+          var u="//matomo.fuwa.dev/";
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId', '1']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
       )
     }
-    <script async src="https://platform.twitter.com/widgets.js"></script>
+    <script is:inline async src="https://platform.twitter.com/widgets.js"></script>
     <link rel="me" href="https://misskey.io/@fuwa2003" />
     <link rel="me" href="https://twitter.com/ibuki2003" />
   </head>
   <body>
     <header>
-      <a href="/" class="navbar-brand"> ふわわあのへや </a>
+      <a href="/" class="navbar-brand">ふわわあのへや</a>
       <small>競プロとか、好きなこと、いろいろ。</small>
     </header>
     <main id="md">
@@ -60,6 +44,5 @@ g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     <footer>
       <small>ibuki2003</small>
     </footer>
-    <body> </body>
   </body>
 </html>
