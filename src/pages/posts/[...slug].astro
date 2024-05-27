@@ -1,0 +1,30 @@
+---
+import Layout from "@/layouts/default.astro";
+
+import { getCollection } from "astro:content";
+import {date_str, get_title} from "./_util.ts";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("posts");
+  return entries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+const { Content } = await entry.render();
+
+
+---
+
+<Layout title={get_title(entry)}>
+  <p id="post-header">
+    <a href="/posts/">投稿</a>
+    &nbsp;&raquo;&nbsp;
+    <time>{date_str(entry.data.date)}</time>
+  </p>
+  <Content />
+</Layout>
+

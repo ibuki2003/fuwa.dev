@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import path from 'path';
 
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -30,6 +31,9 @@ export default defineConfig({
 
 function myMarkdownPlugin () {
   return function (_tree, file) {
+    // skip if file is in {cwd}/src/content/
+    if (path.relative(process.cwd(), file.history.at(-1)).startsWith('src/content/')) return;
+
     const fm = file.data.astro.frontmatter;
     if (!fm.layout) {
       fm.layout = '@/layouts/markdown.astro'

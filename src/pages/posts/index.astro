@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/default.astro";
+
+import { getCollection } from "astro:content";
+
+import {date_str, get_title} from "./_util";
+
+const posts = (await getCollection("posts"))
+  .sort((a, b) => +b.data.date - +a.data.date);
+
+
+---
+
+<Layout title="記事一覧">
+  <article>
+    <h1>記事一覧</h1>
+    <ul>
+      {posts.map((post) => (
+        <li>
+          <a href={`/posts/${post.slug}`}>{date_str(post.data.date)} {get_title(post)}</a>
+        </li>
+        ))}
+    </ul>
+  </article>
+</Layout>
