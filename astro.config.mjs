@@ -2,6 +2,9 @@ import { defineConfig } from 'astro/config';
 
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
 
 import mdx from "@astrojs/mdx";
 
@@ -12,10 +15,13 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [
+      remarkGfm,
+      remarkBreaks,
       myMarkdownPlugin,
       remarkMath,
     ],
     rehypePlugins: [
+      rehypeSlug,
       rehypeKatex,
     ],
     extendDefualtPlugins: true,
