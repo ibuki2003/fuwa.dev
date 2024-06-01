@@ -20,6 +20,9 @@ importers:
       eslint:
         specifier: ^8.22.0
         version: 8.57.0
+      katex:
+        specifier: ^0.16.10
+        version: 0.16.10
       rehype-katex:
         specifier: ^7.0.0
         version: 7.0.0
