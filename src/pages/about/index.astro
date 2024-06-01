@@ -95,7 +95,11 @@ const links = [
                   <li>
                     <a href={href} rel="me">
                       {icon instanceof Promise ? (
-                        <Image src={icon} alt={alt} title={alt} />
+                        <Image
+                          src={icon as Promise<{ default: ImageMetadata }>}
+                          alt={alt}
+                          title={alt}
+                        />
                       ) : (
                         <img src={icon} alt={alt} title={alt} />
                       )}
@@ -139,149 +143,76 @@ const links = [
     </section>
     <section>
       <h2>History</h2>
-      <ul class="timeline">
+      <ol class="timeline">
         <li aria-hidden="true"></li>
+      {[
+      ["2016/04", "APCC入部"],
+      ["2020/11", "パソコン甲子園2020 グランプリ (ひよこなめくじ)"],
+      ["2022/03", "麻布高等学校 卒業", import("./_icons/azb.svg")],
+      ["2022/04", "東京大学 入学", import("./_icons/ut.svg")],
+      ].map(([date, detail, img]) => (
         <li class="timelineEntry">
-          <span class="date">2016/04</span>
-          <span class="detail">APCC入部</span>
+        {img && <Image src={img} class="icon" alt="" />}
+        <span class="date">{date}</span>
+        <span class="detail">{detail}</span>
         </li>
-        <li class="timelineEntry">
-          <span class="date">2017/05</span>
-          <span class="detail">競技プログラミング開始</span>
-        </li>
-        <li class="timelineEntry">
-          <Image src={import("./_icons/joi.png")} class="icon" alt="" />
-          <span class="date">2019/02</span>
-          <span class="detail">
-            JOI2018本選 <br />
-            <a href="/posts/joi2019ho/">参加記</a>
-          </span>
-        </li>
-        <li class="timelineEntry">
-          <Image src={import("./_icons/joi.png")} class="icon" alt="" />
-          <span class="date">2019/08</span>
-          <span class="detail">
-            JOI夏季セミナー2019参加 <br />
-            <a href="/posts/joiss2019/">参加記</a>
-          </span>
-        </li>
-        <li class="timelineEntry">
-          <Image src={import("./_icons/joi.png")} class="icon" alt="" />
-          <span class="date">2020/02</span>
-          <span class="detail">
-            JOI2019本選 <br />
-            <a href="/posts/joi2020ho/">参加記</a>
-          </span>
-        </li>
-        <li class="timelineEntry">
-          <span class="date">2020/11</span>
-          <span class="detail">パソコン甲子園2020 グランプリ</span>
-        </li>
-        <li class="timelineEntry">
-          <Image src={import("./_icons/joi.png")} class="icon" alt="" />
-          <span class="date">2021/02</span>
-          <span class="detail">
-            JOI2020本選 <br />
-            <a href="/posts/joi2021ho/">参加記</a>
-          </span>
-        </li>
-        <li class="timelineEntry">
-          <Image src={import("./_icons/azb.svg")} class="icon" alt="" />
-          <span class="date">2022/03</span>
-          <span class="detail">麻布高等学校 卒業</span>
-        </li>
-        <li class="timelineEntry">
+      ))}
+        <li class="timelineEntry now" aria-hidden="true"> </li>
+        <li class="timelineEntry future">
           <Image src={import("./_icons/ut.svg")} class="icon" alt="" />
-          <span class="date">2022/04</span>
-          <span class="detail">東京大学 入学</span>
-        </li>
-      </ul>
+          <span class="date">2027/04</span>
+          <span class="detail">東京大学 卒業予定</span>
+      </li>
+      </ol>
     </section>
-    <!--<section>
+    <section>
       <h2>Notable Works</h2>
       <div class="works">
-        <WorksCard
-          icon="./icons/afes73.svg"
-          title="麻布学園 文化祭管理システムCAPPUCCINO"
-          tags={[
-            { name: "React.js", image: "./icons/react.svg" },
-            { name: "Lumen", image: "./icons/laravel.svg" },
-            { name: "MySQL", image: "./icons/mysql.svg" },
+        {
+          [
             {
-              name: "GitHub",
-              image: "./icons/github.svg",
-              href: "https://github.com/afes-website",
+              title: "麻布学園 文化祭管理システムCAPPUCCINO",
+              date: "2020/12〜2021/11",
+              href: "https://zenn.dev/su8ru/articles/cappuccino-system",
+              description:
+                "感染症対策のため来場者の入退場数を管理するシステム。麻布学園の第74回文化祭にて使用。",
             },
-          ]}
-        >
-          <ul>
-            <li>2020/12〜2021/11</li>
-            <li>
-              <a href="https://zenn.dev/su8ru/articles/cappuccino-system">
-                開発・運用記
-              </a>
-            </li>
-          </ul>
-        </WorksCard>
-        <WorksCard
-          title={<a href="https://onlinemathcontest.com">OnlineMathContest</a>}
-          tags={[
-            { name: "React.js", image: "./icons/react.svg" },
-            { name: "Laravel", image: "./icons/laravel.svg" },
-          ]}
-        >
-          <ul>
-            <li>worked in 2020/09〜2020/12</li>
-          </ul>
-        </WorksCard>
-        <WorksCard
-          title={<a href="https://oj.fuwa.dev/">Fuwa Online Judge</a>}
-          tags={[
-            { name: "Laravel", image: "./icons/laravel.svg" },
-            { name: "Python", image: "./icons/python.svg" },
             {
-              name: "GitHub",
-              image: "./icons/github.svg",
+              title: "PSkey",
+              date: "2023/07〜",
+              href: "https://github.com/ibuki2003/pskey",
+              description: (
+                <>
+                  <a href="https://github.com/misskey-dev/pskey">Misskey</a>
+                  のAndroidクライアント
+                </>
+              ),
+            },
+            {
+              title: "MorseCord",
+              date: "2023/07〜",
+              href: "https://github.com/ibuki2003/morsecord",
+              description: "モールス符号聞き取り練習のためのDiscord Bot",
+            },
+            {
+              title: "Fuwa Online Judge",
+              date: "2017/10 ～ 2020/10",
               href: "https://github.com/ibuki2003/onlinejudge",
+              description: "競技プログラミングのためのオンラインジャッジシステム。中高の部内で使用",
             },
-          ]}
-        >
-          <ul>
-            <li>2018/11〜 (1世代目:2017/10〜2018/10)</li>
-          </ul>
-        </WorksCard>
-        <WorksCard
-          icon="./icons/pskey.png"
-          title={<a href="https://github.com/ibuki2003/pskey">PSkey</a>}
-          tags={[
-            { name: "React Native", image: "./icons/react.svg" },
-          ]}
-        >
-          <ul>
-            <li>2023/07〜</li>
-            <li>
-              <a href="https://misskey-hub.net/">Misskey</a> Client App for Android
-            </li>
-          </ul>
-        </WorksCard>
-        <WorksCard
-          title={<a href="https://github.com/ibuki2003/morsecord">MorseCord</a>}
-          tags={[
-            { name: "Discord", image: "./icons/discord.svg" },
-            { name: "Rust", image: "./icons/rust.svg" },
-          ]}
-        >
-          <ul>
-            <li>2023/07〜</li>
-            <li>
-              モールス符号聞き取り練習 Discord Bot
-            </li>
-          </ul>
-        </WorksCard>
+          ].map(({ title, date, href, description }) => (
+            <div class="works-entry">
+              <h3>
+                <a href={href}>{title}</a>
+              </h3>
+              <p class="description">{description}</p>
+              <p class="date">{date}</p>
+            </div>
+          ))
+        }
       </div>
       <p><a href="https://github.com/ibuki2003">And more at GitHub</a></p>
     </section>
-    -->
     <section>
       <h2>More information</h2>
       <ul>
@@ -293,72 +224,9 @@ const links = [
   </article>
 </Layout>
 
-<!--
-// const WorksCard: React.FC<{
-//   icon?: ImgSrc;
-//   title: React.ReactNode;
-//   tags?: { name: string; image: ImgSrc; href?: string }[];
-//   children: React.ReactNode;
-// }> = (props) => (
-//   <div class="entryCard">
-//     <h3 class="cardTitle">
-//       {props.icon && (
-//         <Img class="cardIcon" src={props.icon} alt="" />
-//       )}
-//       {props.title}
-//     </h3>
-//     <div class="entryDescription">{props.children}</div>
-//     <ul class="cardTags">
-//       {props.tags &&
-//         props.tags.map(({ name, image, href }) => (
-//           <li key={name}>
-//             {href ? (
-//               <a href={href}>
-//                 <Img src={image} alt={name} />
-//               </a>
-//             ) : (
-//               <>
-//                 <Img src={image} alt={name} />
-//               </>
-//             )}
-//           </li>
-//         ))}
-//     </ul>
-//   </div>
-// </Layout>
-
-// const TimelineEntry: React.FC<{
-//   date: string;
-//   icon?: ImgSrc;
-//   children: React.ReactNode;
-// }> = (props) => (
-// );
-//
-// type ImgObj = { default: { src: string } };
-// type ImgSrc = string | ImgObj;
-//
-// const isImgObject = (src: unknown): src is ImgObj => {
-//   // easy and loose check
-//   return typeof src === "object" && src !== null && "default" in src;
-// };
-//
-// const Img: React.FC<
-//   Omit<React.ImgHTMLAttributes<Element>, "src"> & { src: ImgSrc }
-// > = ({ src, ...props }) => (
-//   // eslint-disable-next-line jsx-a11y/alt-text
-//   <img src={isImgObject(src) ? src.default.src : src} {...props} />
-// );
-//
-// export default AboutPage;
--->
-
 <style lang="scss">
   section.main:not(:last-child) {
     margin-bottom: 3rem;
-    // border-bottom: 1px solid rgba(50, 50, 50, 0.3);
-    // border-radius: 0.3rem;
-    // box-shadow: 2px 2px 5px 1px rgba(15, 10, 5, 0.10);
-    // padding: 0.5rem;
   }
 
   section#personal_info {
@@ -460,7 +328,7 @@ const links = [
   }
 
   $timeline-color: #99aaaa;
-  ul.timeline {
+  ol.timeline {
     list-style: none;
     padding-left: 1em;
     margin-top: 2em;
@@ -482,11 +350,15 @@ const links = [
         z-index: 5;
       }
 
+      &.future:after, &.now:after {
+        border-left-style: dotted !important;
+      }
+
       &.timelineEntry {
         &:before {
           content: "";
-          width: 1.2em;
-          height: 1.2em;
+          width: 18px;
+          height: 18px;
           border-radius: 50%;
           background: $timeline-color;
           border: 5px solid white;
@@ -494,6 +366,17 @@ const links = [
           left: 0.15em;
           z-index: 10;
         }
+
+        &.now:before {
+          width: 20px;
+          height: 20px;
+          background: radial-gradient(
+            circle,
+            #4384f2 40%,
+            #ffffff 90%,
+          );
+        }
+        &.now { height: 1em; }
 
         .icon {
           width: 1.5em;
@@ -517,74 +400,24 @@ const links = [
   }
 
   .works {
-    display: flex;
-    flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
     place-self: center;
 
-    .entryCard {
-      width: calc(50% - 1.5rem);
-    }
-    @media screen and (max-width: 800px) {
-      flex-direction: column;
-      .entryCard {
-        width: 100%;
-      }
-    }
-    gap: 1.5rem;
-
-    .entryCard {
+    .works-entry {
       border-radius: 0.3rem;
-      box-shadow: 2px 2px 5px 2px rgba(15, 10, 5, 0.1);
+      border: 1px solid rgba(50, 50, 50, 0.2);
       padding: 0.5rem;
-      display: flex;
-      flex-direction: column;
+      margin: 2em 1em;
 
       h3 {
         font-size: 1.3em;
       }
 
-      .cardTitle {
-        font-size: 1.2em;
-        margin-right: 0.5em;
-        flex-grow: 1;
-
-        img.cardIcon {
-          width: 1em;
-          margin-right: 0.1em;
-        }
-      }
-
-      .entryDescription {
+      .description {
         flex-grow: 1;
         ul {
           padding-left: 1.5em;
-        }
-      }
-
-      ul.cardTags {
-        list-style: none;
-        text-align: right;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        width: 100%;
-        justify-content: flex-end;
-        flex-wrap: wrap;
-        li {
-          display: block;
-          margin-right: 0.5em;
-          a > img {
-            border-bottom: 1px solid;
-            filter: drop-shadow(1px 1px 0.2em rgba(#aaaaff, 1));
-          }
-          img {
-            display: block;
-            object-fit: contain;
-            width: 1.2em;
-            height: 1.2em;
-          }
         }
       }
     }
