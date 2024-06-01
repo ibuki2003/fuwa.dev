@@ -6,8 +6,8 @@ import Layout from "@/layouts/default.astro";
   <article>
     <h1>Full Screen</h1>
     <p>for screen cleaning, etc.</p>
-    <div id="black" style={{ backgroundColor: 'black' }} />
-    <div id="white" style={{ backgroundColor: 'white' }} />
+    <div id="black" style={{ backgroundColor: "black" }}></div>
+    <div id="white" style={{ backgroundColor: "white" }}></div>
 
     <button id="btn_black">Black</button>
     <button id="btn_white">White</button>
@@ -15,14 +15,22 @@ import Layout from "@/layouts/default.astro";
 </Layout>
 
 <script>
-function start(id: string) {
-  const targ = document.getElementById(id);
-  // @ts-ignore
-  const requestFullScreen = targ.requestFullscreen || targ.mozRequestFullScreen || targ.webkitRequestFullScreen || targ.msRequestFullscreen;
+  function start(id: string) {
+    const targ = document.getElementById(id);
+    // @ts-ignore
+    const requestFullScreen =
+      targ.requestFullscreen ||
+      targ.mozRequestFullScreen ||
+      targ.webkitRequestFullScreen ||
+      targ.msRequestFullscreen;
 
-  requestFullScreen.call(targ);
-}
+    requestFullScreen.call(targ);
+  }
 
-document.getElementById('btn_black')!.addEventListener('click', () => start('black'));
-document.getElementById('btn_white')!.addEventListener('click', () => start('white'));
+  document
+    .getElementById("btn_black")!
+    .addEventListener("click", () => start("black"));
+  document
+    .getElementById("btn_white")!
+    .addEventListener("click", () => start("white"));
 </script>

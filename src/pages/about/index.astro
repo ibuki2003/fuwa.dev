@@ -145,24 +145,26 @@ const links = [
       <h2>History</h2>
       <ol class="timeline">
         <li aria-hidden="true"></li>
-      {[
-      ["2016/04", "APCC入部"],
-      ["2020/11", "パソコン甲子園2020 グランプリ (ひよこなめくじ)"],
-      ["2022/03", "麻布高等学校 卒業", import("./_icons/azb.svg")],
-      ["2022/04", "東京大学 入学", import("./_icons/ut.svg")],
-      ].map(([date, detail, img]) => (
-        <li class="timelineEntry">
-        {img && <Image src={img} class="icon" alt="" />}
-        <span class="date">{date}</span>
-        <span class="detail">{detail}</span>
-        </li>
-      ))}
-        <li class="timelineEntry now" aria-hidden="true"> </li>
+        {
+          [
+            ["2016/04", "APCC入部"],
+            ["2020/11", "パソコン甲子園2020 グランプリ (ひよこなめくじ)"],
+            ["2022/03", "麻布高等学校 卒業", import("./_icons/azb.svg")],
+            ["2022/04", "東京大学 入学", import("./_icons/ut.svg")],
+          ].map(([date, detail, img]) => (
+            <li class="timelineEntry">
+              {img && <Image src={img} class="icon" alt="" />}
+              <span class="date">{date}</span>
+              <span class="detail">{detail}</span>
+            </li>
+          ))
+        }
+        <li class="timelineEntry now" aria-hidden="true"></li>
         <li class="timelineEntry future">
           <Image src={import("./_icons/ut.svg")} class="icon" alt="" />
           <span class="date">2027/04</span>
           <span class="detail">東京大学 卒業予定</span>
-      </li>
+        </li>
       </ol>
     </section>
     <section>
@@ -198,7 +200,8 @@ const links = [
               title: "Fuwa Online Judge",
               date: "2017/10 ～ 2020/10",
               href: "https://github.com/ibuki2003/onlinejudge",
-              description: "競技プログラミングのためのオンラインジャッジシステム。中高の部内で使用",
+              description:
+                "競技プログラミングのためのオンラインジャッジシステム。中高の部内で使用",
             },
           ].map(({ title, date, href, description }) => (
             <div class="works-entry">
@@ -350,7 +353,8 @@ const links = [
         z-index: 5;
       }
 
-      &.future:after, &.now:after {
+      &.future:after,
+      &.now:after {
         border-left-style: dotted !important;
       }
 
@@ -370,13 +374,11 @@ const links = [
         &.now:before {
           width: 20px;
           height: 20px;
-          background: radial-gradient(
-            circle,
-            #4384f2 40%,
-            #ffffff 90%,
-          );
+          background: radial-gradient(circle, #4384f2 40%, #ffffff 90%);
         }
-        &.now { height: 1em; }
+        &.now {
+          height: 1em;
+        }
 
         .icon {
           width: 1.5em;
