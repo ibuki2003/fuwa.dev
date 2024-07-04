@@ -5,9 +5,9 @@ import { getCollection } from "astro:content";
 
 import { date_str, get_title } from "./_util";
 
-const posts = (await getCollection("posts")).sort(
-  (a, b) => +b.data.date - +a.data.date
-);
+const posts = (await getCollection("posts"))
+  .filter((post) => !post.slug.includes("/"))
+  .sort((a, b) => +b.data.date - +a.data.date);
 ---
 
 <Layout title="記事一覧">
