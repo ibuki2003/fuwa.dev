@@ -48,8 +48,11 @@ $$$
   - list
 
 1. a
-1. b
-1. c
+2. b
+3. c
+    1. a
+    2. b
+    3. c
 
 | column1 | column2 | column3 |
 | :------ | :-----: | ------: |
@@ -62,3 +65,7 @@ paragraph2
 fugafuga
 
 <b>embedding HTML</b>
+
+---
+hr
+

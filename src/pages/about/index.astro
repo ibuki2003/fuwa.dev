@@ -237,9 +237,10 @@ const links = [
     place-content: center;
 
     img.profilePic {
+      background: #fff;
       height: 15rem;
       width: 15rem;
-      border: 1px solid rgba(50, 50, 50, 0.3);
+      border: 1px solid var(--fg1);
       margin-right: 2rem;
     }
 
@@ -252,7 +253,7 @@ const links = [
         border: none;
 
         th {
-          border-right: 1px solid rgba(50, 50, 50, 0.1);
+          border-right: 1px solid var(--fg1);
           text-align: right;
           width: 40%;
         }
@@ -365,7 +366,7 @@ const links = [
           height: 18px;
           border-radius: 50%;
           background: $timeline-color;
-          border: 5px solid white;
+          border: 5px solid var(--bg0);
           position: absolute;
           left: 0.15em;
           z-index: 10;
@@ -374,7 +375,7 @@ const links = [
         &.now:before {
           width: 20px;
           height: 20px;
-          background: radial-gradient(circle, #4384f2 40%, #ffffff 90%);
+          background: radial-gradient(circle, #4384f2 40%, var(--bg0) 90%);
         }
         &.now {
           height: 1em;
@@ -383,8 +384,8 @@ const links = [
         .icon {
           width: 1.5em;
           height: 1.5em;
-          background: white;
-          border: 1px solid white;
+          background: var(--bg0);
+          border: 1px solid var(--bg0);
           z-index: 11;
           position: absolute;
           left: 0em;

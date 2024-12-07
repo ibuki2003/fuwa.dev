@@ -26,6 +26,12 @@ export default defineConfig({
       rehypeKatex,
     ],
     extendDefualtPlugins: true,
+    shikiConfig: {
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
+    },
   },
 });
 
