@@ -77,11 +77,11 @@ header {
 main {
   margin-top: 0.5rem;
   background: var(--bg0);
-  padding: 2rem;
+  padding: 3rem;
   padding-top: 0.5rem;
   box-shadow: 0 0 5px 0 rgba(15, 10, 5, 0.05);
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 960px) {
   main {
     padding: 1rem;
   }
