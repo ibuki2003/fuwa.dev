@@ -53,7 +53,7 @@ const links = [
                 <br />
                 The University of Tokyo
                 <br />
-                (B2, 2027/03 卒業予定)
+                (B3, 2027/03 卒業予定)
               </td>
             </tr>
             <tr>
@@ -111,6 +111,7 @@ const links = [
         </div>
       </div>
     </section>
+    <hr />
     <section>
       <h2>Skills / Languages</h2>
       <ul class="skills">
@@ -146,12 +147,14 @@ const links = [
       <ol class="timeline">
         <li aria-hidden="true"></li>
         {
-          [
-            ["2016/04", "APCC入部"],
-            ["2020/11", "パソコン甲子園2020 グランプリ (ひよこなめくじ)"],
-            ["2022/03", "麻布高等学校 卒業", import("./_icons/azb.svg")],
-            ["2022/04", "東京大学 入学", import("./_icons/ut.svg")],
-          ].map(([date, detail, img]) => (
+          (
+            [
+              ["2016/04", "APCC入部", null],
+              ["2020/11", "パソコン甲子園2020 グランプリ (ひよこなめくじ)", null],
+              ["2022/03", "麻布高等学校 卒業", import("./_icons/azb.svg")],
+              ["2022/04", "東京大学 入学", import("./_icons/ut.svg")],
+            ] as [string, string, Promise< { default: ImageMetadata } >][]
+          ).map(([date, detail, img]) => (
             <li class="timelineEntry">
               {img && <Image src={img} class="icon" alt="" />}
               <span class="date">{date}</span>
@@ -168,7 +171,7 @@ const links = [
       </ol>
     </section>
     <section>
-      <h2>Notable Works</h2>
+      <h2>Works</h2>
       <div class="works">
         {
           [
