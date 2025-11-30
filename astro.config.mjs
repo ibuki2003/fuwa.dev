@@ -6,6 +6,7 @@ import rehypeKatex from 'rehype-katex';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
+import remarkDirective from 'remark-directive';
 
 import mdx from "@astrojs/mdx";
 
@@ -21,7 +22,9 @@ export default defineConfig({
     remarkPlugins: [
       remarkGfm,
       remarkBreaks,
-      myMarkdownPlugin,
+      commonStylePlugin,
+      remarkDirective,
+      myDirectivesPlugin,
       remarkMath,
       remarkImgAttrs,
     ],
@@ -39,7 +42,7 @@ export default defineConfig({
   },
 });
 
-function myMarkdownPlugin () {
+function commonStylePlugin () {
   return function (_tree, file) {
     // skip if file is in {cwd}/src/content/
     if (path.relative(process.cwd(), file.history.at(-1)).startsWith('src/content/')) return;
@@ -54,6 +57,26 @@ function myMarkdownPlugin () {
       if (m) fm.title = m[1];
     }
   }
+}
+
+function myDirectivesPlugin() {
+  return function (tree) {
+    visit(tree, (node) => {
+      if (
+        node.type === 'containerDirective' ||
+        node.type === 'leafDirective' ||
+        node.type === 'textDirective'
+      ) {
+        const data = node.data || (node.data = {});
+        const tagName = node.type === 'textDirective' ? 'span' : 'div';
+
+        data.hName = tagName;
+        data.hProperties = h(tagName, node.attributes || {}).properties;
+        console.log(data);
+        data.hProperties.class = [ `md-directive`, `md-directive-${node.name}` ].concat(data.hProperties.class || []);
+      }
+    });
+  };
 }
 
 function remarkImgAttrs() {

@@ -11,6 +11,9 @@
   --link: #0d6efd;
   --link-visited: #6f42c1;
 
+  --info-bg: #cee7;
+  --warn-bg: #feba;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +26,9 @@
     --fg2: #888;
     --link: #3d96ff;
     --link-visited: #417eff;
+
+    --info-bg: #8cc4;
+    --warn-bg: #fc65;
   }
 }
 
@@ -225,4 +231,44 @@ blockquote {
 img {
   max-width: 100%;
   height: auto;
+}
+
+div.md-directive {
+  margin: 1rem 0;
+  padding: 0 1rem ;
+  border-radius: 8px;
+  background: var(--bg1);
+  border: 1px solid var(--bg2);
+  color: var(--fg0);
+
+  position: relative;
+  padding-left: 3rem;
+  &:before {
+    // place an icon here
+    content: "";
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    display: block;
+    background: var(--fg0);
+    color: var(--bg0);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &.md-directive-info {
+    background: var(--info-bg);
+    &:before {
+      content: "i";
+    }
+  }
+  &.md-directive-warning {
+    background: var(--warn-bg);
+    &:before {
+      content: "!";
+    }
+  }
 }

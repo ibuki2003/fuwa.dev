@@ -69,3 +69,13 @@ fugafuga
 ---
 hr
 
+:::info
+directive
+
+yay
+:::
+
+:::warning
+yay
+:::
+
