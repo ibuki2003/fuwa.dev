@@ -5,6 +5,8 @@ export const postsCollection = defineCollection({
   schema: z.object({
     title: z.string().optional(),
     date: z.date(),
+    appendCss: z.string().optional(),
+    appendJs: z.string().optional(),
   }),
 });
 

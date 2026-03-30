@@ -14,6 +14,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 
+const { appendCss, appendJs } = entry.data;
 const { Content } = await entry.render();
 ---
 
@@ -24,4 +25,25 @@ const { Content } = await entry.render();
     <time>{date_str(entry.data.date)}</time>
   </p>
   <Content />
+  { appendCss && <>
+    <div data-style={appendCss} id="inlineStyle" />
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        const styleContent = document.getElementById('inlineStyle').getAttribute('data-style');
+        const styleSheet = document.createElement("style");
+        styleSheet.textContent = styleContent;
+        document.head.appendChild(styleSheet);
+      });
+    </script>
+  </> }
+  { appendJs && <>
+    <div data-script={appendJs} id="inlineScript" />
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        const scriptContent = document.getElementById('inlineScript').getAttribute('data-script');
+        const dynamicFunction = new Function(scriptContent);
+        dynamicFunction();
+      });
+    </script>
+  </> }
 </Layout>
