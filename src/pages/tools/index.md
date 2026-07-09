@@ -6,6 +6,8 @@
 - [QR Structure Generator](/proqrgen/)
 - [Arcaea Analyzer](/arcaea_analyzer/) (メンテあんまりしてない)
 
+機能がほぼないやつら:
+
 - [fullscreen](/tools/fullscreen/)
 - [textarea](/textarea.html)
 - [ping](/ping.txt)
