@@ -1,10 +1,12 @@
 ---
 import Layout from "@/layouts/default.astro";
+import "@/article.scss";
+
 const { title } = Astro.props.frontmatter;
 ---
 
 <Layout title={title}>
-  <article>
+  <article class="markdown-body">
     <slot />
   </article>
 </Layout>

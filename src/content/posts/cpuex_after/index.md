@@ -1,24 +1,6 @@
 ---
 date: 2026-03-30
-appendCss: |
-  #render_image_grid {
-    display: grid;
-    width: 100%;
-    grid-auto-flow: column;
-    align-items: center;
-    gap: 10px;
-  }
-  #render_image_grid figure {
-    margin: 0;
-  }
-  #render_image_grid figure img {
-    width: 100%;
-  }
-
 ---
-
-import { Image } from "astro:assets";
-import { Svg } from "astro:components";
 
 # CPU実験ふりかえり
 
@@ -78,33 +60,13 @@ OCamlの古いエコシステムの匂いが残っており、大規模なプロ
 
 この週の日曜日(10/26)にレイトレが一応動くようになりました。(global領域、除算まわりのバグを埋めていたため完動ではない)
 
-import ball0 from "./_imgs/ball0.png";
-import ball1 from "./_imgs/ball1.png";
-import contest0 from "./_imgs/contest0.png";
-import contest1 from "./_imgs/contest1.png";
-
-<div id="render_image_grid">
-  <figure>
-    <img src={ball0.src} alt="" width={64} />
-    <figcaption>初めて出力された`ball.sld`</figcaption>
-  </figure>
-  <figure>
-    <img src={ball1.src} alt="" width={64} />
-    <figcaption>正しく出力された`ball.sld`</figcaption>
-  </figure>
-  <figure>
-    <img src={contest0.src} alt="" width={64} />
-    <figcaption>その足で出力してみた`contest.sld`</figcaption>
-  </figure>
-  <figure>
-    <img src={contest1.src} alt="" width={64} />
-    <figcaption>形がそれっぽく合うようになった`contest.sld`</figcaption>
-  </figure>
-  <figure>
-    <Image src={import("./_imgs/contest2.png")} alt="" width={256} />
-    <figcaption>floorのバグをなおした`contest.sld`</figcaption>
-  </figure>
-</div>
+:::image-grid{columns=5}
+![初めて出力された`ball.sld`                  {caption_alt}](./_imgs/ball0.png)
+![正しく出力された`ball.sld`                  {caption_alt}](./_imgs/ball1.png)
+![その足で出力してみた`contest.sld`           {caption_alt}](./_imgs/contest0.png)
+![形がそれっぽく合うようになった`contest.sld` {caption_alt}](./_imgs/contest1.png)
+![floorのバグをなおした`contest.sld`          {caption_alt}](./_imgs/contest2.png)
+:::
 
 ### ～年始
 
@@ -198,12 +160,7 @@ server.pyを微修正すれば、実機の出力を見ることもできます�
 
 進捗の感覚だけでなく作業時間の数字にも現れていて、最初の1ヶ月、完動までがピークで、その後との差が激しすぎる。
 
-import statsChart from "./_imgs/cpuex_wakatime_stats.svg";
-
-<figure>
-  <img src={statsChart.src} alt="" />
-  <figcaption>記録されている週ごとの作業時間の遷移。はじめの過集中と後半の息切れが綺麗にわかる</figcaption>
-</figure>
+![記録されている週ごとの作業時間の遷移。はじめの過集中と後半の息切れが綺麗にわかる {caption_alt}](./_imgs/cpuex_wakatime_stats.svg)
 
 
 ### 競争

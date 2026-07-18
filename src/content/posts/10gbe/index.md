@@ -2,8 +2,6 @@
 date: 2024-06-01
 ---
 
-import {Image} from "astro:assets";
-
 # 自宅に10GbE環境をとりあえず安くつくる 2024年版
 
 (タイトルはノリでつけました。格安10GbEの記事って調べると数年前の10万かかってる時代のばっかり出てくる気がする。)
@@ -35,7 +33,7 @@ NIC選びは特にインターネットの情報が頼りになります。お�
 **なお10Gbpsで喋れる相手は(今のところ)いません。**
 まあNASと話しながらインターネットの1Gbps出せるのはメリットかも
 
-<Image src={import("./_imgs/20240429_172748_.JPG")} alt="デスクトップPCに光ファイバが刺さっているようす" style="max-height: 30em; width: auto;" />
+![デスクトップPCに光ファイバが刺さっているようす {maxWidth=30em}](./_imgs/20240429_172748_.JPG)
 
 ドライバはpacmanで落ちてくる(`linux-firmware-mellanox`)ので、あとはmstflintでFWアップデートなどすれば問題なく動作しました。ArchLinux最高！
 (スリープ復帰時にnetctlがresolv.conf書き換えてDNSが壊れるのがわかったのでNetworkManagerを導入した。この解決に1時間費やしました)
@@ -49,10 +47,10 @@ NIC選びは特にインターネットの情報が頼りになります。お�
 WiFiモジュール用のM.2 key-Eの口が余っているのでLANカードを買ってきて **†魔改造†** しました。
 (PCIe3.0x2なので10GbEでも帯域は足りると思うんだけど、良い変換カードがなさそう…)
 
-<p style="display: grid; width: 100%; grid-auto-flow: column; align-items: center; gap: 10px;">
-  <Image src={import("./_imgs/20240503_005731_.JPG")} alt="" />
-  <Image src={import("./_imgs/20240503_010433_.JPG")} alt="" />
-</p>
+:::image-inline
+![](./_imgs/20240503_005731_.JPG)
+![](./_imgs/20240503_010433_.JPG)
+:::
 
 ## 計測
 

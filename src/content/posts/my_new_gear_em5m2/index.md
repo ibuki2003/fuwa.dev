@@ -17,8 +17,6 @@ appendCss: |
     width: 100%;
   }
 ---
-import { Image } from "astro:assets";
-
 # <ruby>新しいおもちゃ<rt>ミラーレス一眼</rt></ruby>を買った話
 
 半分自分用の記録を書きます
@@ -141,37 +139,20 @@ EVFが遅延なく自然な写りだったというのも併せて、微弱な�
 
 a.k.a. 「撮ったよ みてみて」
 
-<div id="render_image_grid">
-  <figure>
-    <Image src={import("./_imgs/P3240127_edited.jpg")} alt="" width={2048} />
-    <figcaption>箱根大涌谷</figcaption>
-  </figure>
-  <figure>
-    <Image src={import("./_imgs/P3270440_edited.jpg")} alt="" width={2048} />
-    <figcaption>ふれあい牧場のヤギ</figcaption>
-  </figure>
-  <figure>
-    <Image src={import("./_imgs/P3280652_edited.jpg")} alt="" width={2048} />
-    <figcaption>東武日光駅</figcaption>
-  </figure>
-  <figure>
-    <Image src={import("./_imgs/P3280767_edited.jpg")} alt="" height={2048} />
-    <figcaption>桜</figcaption>
-  </figure>
-</div>
+:::image-grid
+![箱根大涌谷         {caption_alt}](./_imgs/P3240127_edited.jpg)
+![ふれあい牧場のヤギ {caption_alt}](./_imgs/P3270440_edited.jpg)
+![東武日光駅         {caption_alt}](./_imgs/P3280652_edited.jpg)
+![桜                 {caption_alt}](./_imgs/P3280767_edited.jpg)
+:::
+
 
 ## 作例 その2
 
 購入から一週間で自作レンズ(?)(レンズを外してセンサーに直接光を当てる遊び、とも言う)に手をつけたらしい、早すぎ。まあ手に入れたおもちゃで最大限遊び尽くそうとする意気は評価されよう。
 手元にあった虫めがねを使った望遠レンズ(~310mm F/5.5)、ボディキャップに穴をあけて作ったピンホールレンズ(~26mm F/50)で遊んでました。
 
-<div id="render_image_grid">
-  <figure>
-    <Image src={import("./_imgs/P3230031_edited.jpg")} alt="" width={2048} />
-    <figcaption>ピンホールレンズで撮影 ボンドの容器</figcaption>
-  </figure>
-  <figure>
-    <Image src={import("./_imgs/P3300825_.jpg")} alt="" width={2048} />
-    <figcaption>虫めがねレンズで撮影 チノちゃんアクスタ(でかい!)</figcaption>
-  </figure>
-</div>
+:::image-grid
+![ピンホールレンズで撮影 ボンドの容器 {caption_alt}](./_imgs/P3230031_edited.jpg)
+![虫めがねレンズで撮影 チノちゃんアクスタ(でかい!) {caption_alt}](./_imgs/P3300825_.jpg)
+:::

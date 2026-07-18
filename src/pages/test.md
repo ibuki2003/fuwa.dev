@@ -79,3 +79,17 @@ yay
 yay
 :::
 
+
+:::image-inline
+![caption1](https://fuwa.dev/favicon.ico)
+![caption2](https://fuwa.dev/favicon.ico)
+:::
+
+:::image-grid{columns=3}
+![caption1](https://fuwa.dev/favicon.ico)
+![caption2](https://fuwa.dev/favicon.ico)
+![caption3](https://fuwa.dev/favicon.ico)
+![caption4](https://fuwa.dev/favicon.ico)
+![caption5](https://fuwa.dev/favicon.ico)
+![caption6](https://fuwa.dev/favicon.ico)
+:::

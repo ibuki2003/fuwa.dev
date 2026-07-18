@@ -1,0 +1,104 @@
+// styles for article, i.e., markdown content
+
+article.markdown-content {
+  // for cqi units to work, we need to set a container type
+  container-type: inline-size;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100cqi;
+  height: auto;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+figure {
+  margin: 1rem 0;
+  text-align: center;
+  figcaption {
+    font-size: 0.9rem;
+    color: var(--fg2);
+    margin-top: 0.5rem;
+  }
+}
+
+div.admonition {
+  margin: 1rem 0;
+  padding: 0 1rem ;
+  border-radius: 8px;
+  background: var(--bg1);
+  border: 1px solid var(--bg2);
+  color: var(--fg0);
+
+  position: relative;
+  padding-left: 3rem;
+  &:before {
+    // place an icon here
+    content: "";
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    display: block;
+    background: var(--fg0);
+    color: var(--bg0);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &.admonition-info {
+    background: var(--info-bg);
+    &:before {
+      content: "i";
+    }
+  }
+  &.admonition-warning {
+    background: var(--warn-bg);
+    &:before {
+      content: "!";
+    }
+  }
+}
+
+div.image-inline {
+  display: grid;
+  width: 100%;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 10px;
+  > p {
+    display: contents;
+  }
+  br {
+    display: none;
+  }
+}
+
+div.image-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  figure {
+    margin: 0;
+    img {
+      width: 100%;
+    }
+  }
+
+  grid-template-columns:
+    repeat(var(--image-grid-columns, 2), minmax(0, 1fr));
+  gap: 1em;
+
+  > p {
+    display: contents;
+  }
+  br {
+    display: none;
+  }
+}

@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/default.astro";
+import "@/article.scss";
 
 import { getCollection } from "astro:content";
 import { date_str, get_title } from "./_util.ts";
@@ -24,7 +25,9 @@ const { Content } = await entry.render();
     &nbsp;&raquo;&nbsp;
     <time>{date_str(entry.data.date)}</time>
   </p>
-  <Content />
+  <article class="markdown-body">
+    <Content />
+  </article>
   { appendCss && <>
     <div data-style={appendCss} id="inlineStyle" />
     <script is:inline>

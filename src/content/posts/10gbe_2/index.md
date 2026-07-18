@@ -2,8 +2,6 @@
 date: 2024-07-04
 ---
 
-import {Image} from "astro:assets";
-
 # 自宅10GbE その2
 
 [前回の記事はこちら。](/posts/10gbe)
@@ -18,10 +16,10 @@ import {Image} from "astro:assets";
 みんな大好きCrystalDiskMarkのお時間です。結果はこちら。
 linuxがfsをキャッシュしてくれるおかげでHDDの限界を超えたアクセス速度を達成できています。
 
-<p style="display: grid; width: 100%; grid-auto-flow: column; align-items: center; gap: 10px;">
-  <Image src={import("./_imgs/diskmark_1g.png")} alt="1GbEでのベンチマーク、シーケンシャルでおよそ120MB/s" />
-  <Image src={import("./_imgs/diskmark_2g5.png")} alt="2.5GbEでのベンチマーク、シーケンシャルでおよそ300MB/s" />
-</p>
+:::image-inline
+![1GbEでのベンチマーク \{no_caption}](./_imgs/diskmark_1g.png)
+![2.5GbEでのベンチマーク \{no_caption}](./_imgs/diskmark_2g5.png)
+:::
 
 
 おまけ、LANを通さなければこの速度が出せます。(サーバー上にqemuでwindowsを動かしています。 ~それはただのHDDのベンチマークでは?~ )

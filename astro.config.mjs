@@ -73,7 +73,29 @@ function myDirectivesPlugin() {
         data.hName = tagName;
         data.hProperties = h(tagName, node.attributes || {}).properties;
         console.log(data);
-        data.hProperties.class = [ `md-directive`, `md-directive-${node.name}` ].concat(data.hProperties.class || []);
+        switch (node.name) {
+          case 'info':
+          case 'warning':
+          {
+            data.hProperties.class = [ `admonition`, `admonition-${node.name}` ].concat(data.hProperties.class || []);
+            break;
+          }
+          case 'image-inline': {
+            // images in 1 line
+            data.hProperties.class = [ `image-inline` ].concat(data.hProperties.class || []);
+            break;
+          }
+          case 'image-grid': {
+            // images in grid
+            data.hProperties.class = [ `image-grid` ].concat(data.hProperties.class || []);
+
+            const columns = Number.parseInt(node.attributes?.columns ?? "2", 10);
+            if (Number.isInteger(columns) && columns >= 1)
+              data.hProperties.style = `--image-grid-columns: ${columns}`;
+
+            break;
+          }
+        }
       }
     });
   };
@@ -116,6 +138,23 @@ function remarkImgAttrs() {
 
       if (!attrs) return;
 
+    console.log('image attrs', attrs);
+
+      if (attrs.width) {
+        // set style
+        node.data ??= {};
+        node.data.hProperties = node.data.hProperties || {};
+        node.data.hProperties.style = node.data.hProperties.style || '';
+        node.data.hProperties.style += `width: ${attrs.width};`;
+      }
+      if (attrs.maxWidth) {
+        // set style
+        node.data ??= {};
+        node.data.hProperties = node.data.hProperties || {};
+        node.data.hProperties.style = node.data.hProperties.style || '';
+        node.data.hProperties.style += `max-width: ${attrs.maxWidth};`;
+      }
+
       const caption = attrs.caption || (attrs.caption_alt && alt);
 
       if (caption) {
@@ -132,21 +171,6 @@ function remarkImgAttrs() {
           ],
         };
         replace(node, figElm);
-      }
-
-      if (attrs.width) {
-        // set style
-        node.data ??= {};
-        node.data.hProperties = node.data.hProperties || {};
-        node.data.hProperties.style = node.data.hProperties.style || '';
-        node.data.hProperties.style += `width: ${attrs.width};`;
-      }
-      if (attrs.maxWidth) {
-        // set style
-        node.data ??= {};
-        node.data.hProperties = node.data.hProperties || {};
-        node.data.hProperties.style = node.data.hProperties.style || '';
-        node.data.hProperties.style += `max-width: ${attrs.maxWidth};`;
       }
     });
   };
