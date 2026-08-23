@@ -16,12 +16,14 @@ import Layout from "@/layouts/default.astro";
 
 <script>
   function start(id: string) {
-    const targ = document.getElementById(id);
-    // @ts-ignore
+    const targ = document.getElementById(id)!;
     const requestFullScreen =
       targ.requestFullscreen ||
+      // @ts-expect-error -- Legacy Firefox Fullscreen API.
       targ.mozRequestFullScreen ||
+      // @ts-expect-error -- Legacy WebKit Fullscreen API.
       targ.webkitRequestFullScreen ||
+      // @ts-expect-error -- Legacy Microsoft Fullscreen API.
       targ.msRequestFullscreen;
 
     requestFullScreen.call(targ);
