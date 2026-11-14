@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/default.astro";
 import { Image } from "astro:assets";
+import { CodeXml, Cpu, ShieldCheck, MonitorActivity } from '@lucide/astro';
 
 const links = [
   [
@@ -23,6 +24,11 @@ const links = [
     import("./_icons/misskey_io.svg"),
     "@fuwa2003@misskey.io",
     "https://misskey.io/@fuwa2003",
+  ],
+  [
+    import("./_icons/orcid.svg"),
+    "ORCiD Ibuki Sugiyama",
+    "https://orcid.org/0009-0007-5896-5621",
   ],
   [
     import("./_icons/keybase.png"),
@@ -49,16 +55,18 @@ const links = [
             <tr>
               <th>Affiliation</th>
               <td>
-                東京大学 (理科一類 → 理学部情報科学科)
+                東京大学 (理学部 情報科学科)
                 <br />
                 The University of Tokyo
                 <br />
                 (B4, 2027/03 卒業予定)
+                <br />
+                <a href="https://sites.google.com/view/casys-ja/">CASYS</a>
               </td>
             </tr>
             <tr>
               <th>Date of Birth</th>
-              <td>2003/04/26</td>
+              <td>2003-04-26</td>
             </tr>
             <tr>
               <th>OpenPGP Key</th>
@@ -111,52 +119,20 @@ const links = [
         </div>
       </div>
     </section>
-    <hr />
-    <section>
-      <h2>Skills / Languages</h2>
-      <ul class="skills">
-        {
-          (
-            [
-              ["C/C++", import("./_icons/cpp.svg")],
-              ["Rust", import("./_icons/rust.svg")],
-              ["HTML/JS/CSS", import("./_icons/html5.svg")],
-              ["TypeScript", import("./_icons/typescript.svg")],
-              ["PHP", import("./_icons/php.svg")],
-              ["React.js", import("./_icons/react.svg")],
-              ["Vue.js", import("./_icons/vue.svg")],
-              ["Python3", import("./_icons/python.svg")],
-              ["RDB / SQL", import("./_icons/mysql.svg")],
-              ["Java", import("./_icons/java.svg")],
-              ["Laravel (,Lumen)", import("./_icons/laravel.svg")],
-              ["Git", import("./_icons/git.svg")],
-              ["Linux", import("./_icons/archlinux.svg")],
-              ["Docker", import("./_icons/docker.svg")],
-            ] as const
-          ).map(([name, logo]) => (
-            <li>
-              <Image src={logo} alt="" />
-              <div>{name}</div>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-    <section>
-      <h2>History</h2>
+    <section class="profile-section">
+      <h2>Timeline</h2>
       <ol class="timeline">
-        <li aria-hidden="true"></li>
         {
           (
             [
-              ["2016/04", "APCC入部", null],
-              ["2020/11", "パソコン甲子園2020 グランプリ (ひよこなめくじ)", null],
-              ["2022/03", "麻布高等学校 卒業", import("./_icons/azb.svg")],
-              ["2022/04", "東京大学 入学", import("./_icons/ut.svg")],
-            ] as [string, string, Promise< { default: ImageMetadata } >][]
-          ).map(([date, detail, img]) => (
+              ["2016/04", "APCC入部"],
+              ["2020/11", "パソコン甲子園2020 グランプリ (ひよこなめくじ)"],
+              ["2022/03", "麻布高等学校 卒業"],
+              ["2022/04", "東京大学 入学"],
+              ["2026/10", "CASYS 卒論配属"],
+            ] as const
+          ).map(([date, detail]) => (
             <li class="timelineEntry">
-              {img && <Image src={img} class="icon" alt="" />}
               <span class="date">{date}</span>
               <span class="detail">{detail}</span>
             </li>
@@ -164,13 +140,69 @@ const links = [
         }
         <li class="timelineEntry now" aria-hidden="true"></li>
         <li class="timelineEntry future">
-          <Image src={import("./_icons/ut.svg")} class="icon" alt="" />
           <span class="date">2027/03</span>
           <span class="detail">東京大学 卒業予定</span>
         </li>
+        <li class="timelineEntry future">
+          <span class="date">2027/04</span>
+          <span class="detail">東京大学大学院 情報理工学系研究科 進学予定</span>
+        </li>
       </ol>
     </section>
-    <section>
+    <section class="profile-section">
+      <h2>Expertise</h2>
+      <div class="expertise">
+        <section class="expertise-card">
+          <h3><MonitorActivity aria-hidden="true" />Computer Systems</h3>
+          <ul>
+            <li>OSやネットワークの理解</li>
+            <li>Linuxシステムの構築・運用</li>
+            <li>仮想化・コンテナを用いた環境構築</li>
+          </ul>
+          <ul class="pills">
+            <li>Linux</li>
+            <li>systemd</li>
+            <li>Docker</li>
+            <li>Proxmox</li>
+          </ul>
+        </section>
+        <section class="expertise-card">
+          <h3><CodeXml aria-hidden="true" />Software Development</h3>
+          <ul>
+            <li>アーキテクチャ設計</li>
+            <li>Web Apps (backend, frontend)</li>
+            <li>CLI</li>
+            <li>System Apps</li>
+          </ul>
+          <ul class="pills">
+            <li>Rust</li>
+            <li>HTML</li>
+            <li>TypeScript</li>
+          </ul>
+        </section>
+        <section class="expertise-card">
+          <h3><Cpu aria-hidden="true" />Electronics</h3>
+          <ul>
+            <li>電子工作</li>
+            <li>組込みシステム開発</li>
+            <li>無線通信・信号処理</li>
+          </ul>
+          <ul class="pills">
+            <li>RP2350</li>
+            <li>KiCad</li>
+            <li>RF</li>
+          </ul>
+        </section>
+        <section class="expertise-card">
+          <h3><ShieldCheck aria-hidden="true" />Qualifications</h3>
+          <ul>
+            <li>応用情報技術者試験 (AP)</li>
+            <li>第一級アマチュア無線技士</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+    <section class="profile-section">
       <h2>Works</h2>
       <div class="works">
         {
@@ -219,11 +251,11 @@ const links = [
       </div>
       <p><a href="https://github.com/ibuki2003">And more at GitHub</a></p>
     </section>
-    <section>
+    <section class="profile-section">
       <h2>More information</h2>
       <ul>
         <li>
-          <a href="/about/system/">System Information</a>
+          <a href="/about/equipments/">Equipments</a>
         </li>
       </ul>
     </section>
@@ -238,13 +270,18 @@ const links = [
   section#personal_info {
     display: flex;
     place-content: center;
+    border: 1px solid var(--fg1);
+    border-radius: 0.6rem;
 
     img.profilePic {
       background: #fff;
       height: 15rem;
       width: 15rem;
       border: 1px solid var(--fg1);
+      margin-left: 1rem;
       margin-right: 2rem;
+      margin-top: auto;
+      margin-bottom: auto;
     }
 
     table {
@@ -309,100 +346,175 @@ const links = [
     }
   }
 
-  ul.skills {
-    display: flex;
-    flex-wrap: wrap;
-    place-content: center;
-    list-style: none;
-    padding: 0;
-    li {
+  .profile-section {
+    margin-top: 2.5rem;
+
+    > h2 {
+      padding: 0 0 0.65rem 0.85rem;
+      border-left: 4px solid #4384f2;
+      border-bottom: 1px solid var(--bg2);
+      background: none;
+      &::after { display: none; } // remove the default underline
+    }
+  }
+
+  .expertise {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    /* @media (max-width: 1000px) { grid-template-columns: repeat(2, minmax(0, 1fr)); } */
+    @media (max-width: 500px) { grid-template-columns: minmax(0, 1fr); }
+
+    .expertise-card {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      max-width: 5em;
-      margin: 1em;
+      padding: 1.25rem;
+      border: 1px solid var(--bg2);
+      border-radius: 0.75rem;
+      background: rgba(var(--bg1-rgb), 0.4);
 
-      img {
-        object-fit: contain;
-        width: 5em;
-        height: 5em;
-        margin-bottom: 1em;
+      h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin: 0 0 0.5rem;
+        padding: 0;
+        border: none;
+        font-size: 1rem;
+        line-height: 1.5;
+
+        svg {
+          width: 1.6rem;
+          height: 1.6rem;
+          flex-shrink: 0;
+          color: #4384f2;
+        }
       }
-      div {
-        text-align: center;
+
+      &>* {
+        margin: 0.5rem 0 0;
+      }
+
+      ul.pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.5rem 0 0;
+        margin: auto 0 0;
+        list-style: none;
+
+        li {
+          padding: 0.2rem 0.65rem;
+          border-radius: 1rem;
+          background: var(--bg2);
+          font-size: 0.85rem;
+          line-height: 1.5;
+          &:before {
+            content: '#';
+            font-size: 0.7em;
+            margin-right: 0.1em;
+            opacity: 0.7;
+            alignment-baseline: middle;
+          }
+        }
       }
     }
   }
 
-  $timeline-color: #99aaaa;
   ol.timeline {
+    --axis: 8.5rem;
     list-style: none;
-    padding-left: 1em;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    padding: 0;
+    margin: 1.75rem 0;
+
     li {
-      display: flex;
+      display: grid;
+      grid-template-columns: 6.5rem minmax(0, 1fr);
+      column-gap: 4rem;
       position: relative;
-      margin-top: 1.5em;
-      padding-left: 2em;
+      margin: 0;
+      padding: 0 0 1.5rem;
+      line-height: 1.6;
 
-      &:after {
+      // line
+      &::after {
         content: "";
-        height: calc(100% + 1.6em);
-
-        border-left: 2px solid $timeline-color;
         position: absolute;
-        top: 0;
-        left: calc(1.5em / 2 - 1px);
-        z-index: 5;
+        top: 0.8rem;
+        bottom: -0.8rem;
+        left: var(--axis);
+        border-left: 2px solid var(--fg2);
+        transform: translateX(-50%);
       }
 
-      &.future:after,
-      &.now:after {
-        border-left-style: dotted !important;
+      // dot
+      &::before {
+        content: "";
+        position: absolute;
+        left: var(--axis);
+        top: 0.8rem;
+        width: 0.65rem;
+        height: 0.65rem;
+        border-radius: 50%;
+        background: var(--fg1);
+        transform: translate(-50%, -50%);
+        z-index: 1;
       }
 
-      &.timelineEntry {
-        &:before {
-          content: "";
-          width: 18px;
-          height: 18px;
-          border-radius: 50%;
-          background: $timeline-color;
-          border: 5px solid var(--bg0);
-          position: absolute;
-          left: 0.15em;
-          z-index: 10;
-        }
+      &.now {
+        min-height: calc(1lh + 1.5rem);
 
-        &.now:before {
-          width: 20px;
-          height: 20px;
-          background: radial-gradient(circle, #4384f2 40%, var(--bg0) 90%);
+        &::before {
+          background: #4384f2;
+          box-shadow: 0 0 0 3px var(--bg0), 0 0 0 4px #4384f2;
         }
-        &.now {
-          height: 1em;
-        }
+      }
 
-        .icon {
-          width: 1.5em;
-          height: 1.5em;
-          background: var(--bg0);
-          border: 1px solid var(--bg0);
-          z-index: 11;
-          position: absolute;
-          left: 0em;
-          top: -0.25em;
-        }
+      &.now::after,
+      &.future::after {
+        border-left-style: dotted;
+      }
 
-        .date {
-          margin-right: 1em;
+      &:last-child {
+        padding-bottom: 1.5rem;
+
+        &::after {
+          bottom: 0;
+          mask-image: linear-gradient(to bottom, #000, transparent);
         }
-        .detail {
-          flex-grow: 1;
+      }
+
+      &:first-child {
+        margin-top: 3rem;
+        &::after {
+          top: -2rem;
+          mask-image: linear-gradient(to top, #000, transparent);
         }
+      }
+
+      .date {
+        text-align: right;
+        white-space: nowrap;
+        color: var(--fg1);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .detail {
+        font-weight: 500;
+        overflow-wrap: anywhere;
       }
     }
+    @media (max-width: 500px) {
+      --axis: 5.6rem;
+      li {
+        grid-template-columns: 4.5rem minmax(0, 1fr);
+        column-gap: 2.2rem;
+        font-size: 0.9rem;
+      }
+    }
+
   }
 
   .works {
@@ -411,10 +523,7 @@ const links = [
     place-self: center;
 
     .works-entry {
-      border-radius: 0.3rem;
-      border: 1px solid rgba(50, 50, 50, 0.2);
-      padding: 0.5rem;
-      margin: 2em 1em;
+      margin: 1.5em 0;
 
       h3 {
         font-size: 1.3em;
